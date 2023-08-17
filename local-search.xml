@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>yumaPro How do I use GET2 callback?</title>
+    <link href="/2023/08/17/get2/"/>
+    <url>/2023/08/17/get2/</url>
+    
+    <content type="html"><![CDATA[<p>GET2 回调函数对每个对象模板使用 1 个回调。服务器将通过此 API 发出“get”和“getnext”请求，回调代码将返回它所管理的数据的值节点。这些数据节点不在服务器数据树中维护。它们不会缓存在服务器中。</p><p>这些回调在调用时应返回部分或全部终端子节点（叶、叶列表、anyxml）。</p><p>GET2 回调从不返回复杂节点的子节点。复杂子节点应注册有自己的 get2 回调。<br>GET2 回调不支持配置数据。<br>请参阅 <a href="https://yumaworks.freshdesk.com/support/solutions/articles/1000285632">GET2 All In One (AIO)</a> 回调，一次性检索复杂节点。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>SDN</tag>
+      
+      <tag>YumaPro</tag>
+      
+      <tag>Netconf</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2023/07/27/hello-world/"/>
     <url>/2023/07/27/hello-world/</url>
