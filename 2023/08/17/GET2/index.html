@@ -16,21 +16,24 @@
   <meta name="author" content="itoo">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="Ok, Let&#39;s getting started with...">
-<meta property="og:url" content="http://example.com/2023/07/27/with/index.html">
+    <meta name="description" content="GET2 回调函数对每个对象模板使用 1 个回调。服务器将通过此 API 发出“get”和“getnext”请求，回调代码将返回它所管理的数据的值节点。这些数据节点不在服务器数据树中维护。它们不会缓存在服务器中。 这些回调在调用时应返回部分或全部终端子节点（叶、叶列表、anyxml）。 GET2 回调从不返回复杂节点的子节点。复杂子节点应注册有自己的 get2 回调。GET2 回调不支持配置数据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yumaPro How do I use GET2 callback?">
+<meta property="og:url" content="http://example.com/2023/08/17/GET2/index.html">
 <meta property="og:site_name" content="Ito&#39;s blog">
+<meta property="og:description" content="GET2 回调函数对每个对象模板使用 1 个回调。服务器将通过此 API 发出“get”和“getnext”请求，回调代码将返回它所管理的数据的值节点。这些数据节点不在服务器数据树中维护。它们不会缓存在服务器中。 这些回调在调用时应返回部分或全部终端子节点（叶、叶列表、anyxml）。 GET2 回调从不返回复杂节点的子节点。复杂子节点应注册有自己的 get2 回调。GET2 回调不支持配置数据。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-27T09:48:00.000Z">
-<meta property="article:modified_time" content="2023-07-27T09:58:15.496Z">
+<meta property="article:published_time" content="2023-08-17T02:57:23.000Z">
+<meta property="article:modified_time" content="2023-08-17T03:08:59.327Z">
 <meta property="article:author" content="itoo">
-<meta property="article:tag" content="Fluid">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="SDN">
+<meta property="article:tag" content="YumaPro">
+<meta property="article:tag" content="Netconf">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Ok, Let&#39;s getting started with... - Ito&#39;s blog</title>
+  <title>yumaPro How do I use GET2 callback? - Ito&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -190,13 +193,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/wallhaven-v993o3.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/wallhaven-ex9gwo.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Ok, Let&#39;s getting started with..."></span>
+            <span id="subtitle" data-typed-text="yumaPro How do I use GET2 callback?"></span>
           
         </div>
 
@@ -207,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-27 09:48" pubdate>
-          2023年7月27日 上午
+        <time datetime="2023-08-17 02:57" pubdate>
+          2023年8月17日 凌晨
         </time>
       </span>
     
@@ -219,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          222 字
         
       </span>
     
@@ -230,7 +233,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -267,12 +270,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Ok, Let&#39;s getting started with...</h1>
+            <h1 id="seo-header">yumaPro How do I use GET2 callback?</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>GET2 回调函数对每个对象模板使用 1 个回调。服务器将通过此 API 发出“get”和“getnext”请求，回调代码将返回它所管理的数据的值节点。这些数据节点不在服务器数据树中维护。它们不会缓存在服务器中。</p>
+<p>这些回调在调用时应返回部分或全部终端子节点（叶、叶列表、anyxml）。</p>
+<p>GET2 回调从不返回复杂节点的子节点。复杂子节点应注册有自己的 get2 回调。<br>GET2 回调不支持配置数据。<br>请参阅 <a target="_blank" rel="noopener" href="https://yumaworks.freshdesk.com/support/solutions/articles/1000285632">GET2 All In One (AIO)</a> 回调，一次性检索复杂节点。</p>
+
                 
               </div>
             
@@ -284,9 +290,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Fluid/" class="print-no-link">#Fluid</a>
+        <a href="/tags/SDN/" class="print-no-link">#SDN</a>
       
-        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+        <a href="/tags/YumaPro/" class="print-no-link">#YumaPro</a>
+      
+        <a href="/tags/Netconf/" class="print-no-link">#Netconf</a>
       
     </div>
   
@@ -298,8 +306,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Ok, Let&#39;s getting started with...</div>
-      <div>http://example.com/2023/07/27/with/</div>
+      <div>yumaPro How do I use GET2 callback?</div>
+      <div>http://example.com/2023/08/17/GET2/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +319,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月27日</div>
+          <div>2023年8月17日</div>
         </div>
       
       
@@ -343,15 +351,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/27/hello-world/" title="Hello World">
+                      <a href="/2023/08/18/TestMarkdown/" title="test Markdown 基本语法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
+                        <span class="hidden-mobile">test Markdown 基本语法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/07/27/hello_world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

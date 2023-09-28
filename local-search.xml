@@ -4,9 +4,32 @@
   
   
   <entry>
+    <title>yumaPro Edit Callback Overview</title>
+    <link href="/2023/09/28/EDIT2/"/>
+    <url>/2023/09/28/EDIT2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="EDIT2-md"><a href="#EDIT2-md" class="headerlink" title="EDIT2.md"></a>EDIT2.md</h1><h3 id="Database-Operations-数据库操作"><a href="#Database-Operations-数据库操作" class="headerlink" title="Database Operations | 数据库操作"></a>Database Operations | 数据库操作</h3><p>服务器数据库的设计使得 SIL 回调函数不需要真正知道服务器正在使用哪个数据库模型（例如，目标是 <candidate> 与 <running> 配置）。<br>SIL 数据库编辑回调阶段分为三个阶段：</p><ol><li>Validate：无论目标数据库是什么，都需要检查参数   </li><li>Apply: 服务器将根据需要操作数据库节点。除非需要预留内部资源，否则 SIL 通常在此阶段无事可做。</li><li>Commit or Rollback: 根据前面阶段的结果，如果更改将在运行配置中最终确定，则将调用提交或回滚回调阶段.</li></ol><p>SIL 代码不负责维护任何数据库的值树。这是由服务器完成的。</p><p>SIL 数据库编辑回调代码负责以下任务：</p><ul><li><p>在验证阶段执行机器可读语句尚未涵盖的任何数据模型特定验证。</p></li><li><p>在应用阶段，为建议的新配置内容保留任何数据模型特定资源。</p></li><li><p>在提交阶段，根据新的配置内容激活任何数据模型行为更改。</p></li><li><p>在回滚阶段释放先前在应用阶段分配的所有保留资源。</p></li></ul><p>YANG“config”语句用于标识NETCONF和RESTCONF中的配置数据节点。</p><ul><li>如果配置&#x3D;’true’：<ul><li>数据节点可编辑，支持EDIT1或EDIT2回调</li><li>如果启用NMDA，则可以使用 GET2 回调检索操作数据节点</li><li>NETCONF 客户端可以通过以下操作检索数据：<br> <get><br> <get-bulk><br> <get-config><br> <get-data></li></ul></li><li>如果配置&#x3D;’false’：<ul><li>数据节点不可编辑，支持GET1或GET2回调</li><li>NETCONF 客户端可以通过以下操作检索数据：<br><get><br><get-bulk><br><get-data></li></ul></li></ul><p>每个回调类型都有自己的回调API函数原型，并且每个回调都有自己需要使用的注册和注销函数。该代码通常由yangdump-sdk自动生成。</p><hr><h3 id="Edit-Callback-Overview"><a href="#Edit-Callback-Overview" class="headerlink" title="Edit Callback Overview"></a>Edit Callback Overview</h3><p>####获取当前编辑事务ID</p><p>为了确定编辑事务是否正在进行中，可以使用 API:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"> &gt; <span class="hljs-type">ncx_transaction_id_t</span>  <span class="hljs-title function_">agt_cfg_txid_in_progress</span> <span class="hljs-params">( <span class="hljs-type">ncx_cfg_t</span> cfgid )</span> <br> Parameters:<br>cfgid --  要检查的配置 ID<br>Returns --  正在进行的交易的 txid，如果没有则为 0<br><br>该返回当前正在进行的事务ID：<br>如果此函数返回的 transaction-id 为零，则表示没有事务正在进行。<br><br>Example: 获取正在运行的数据存储的当前事务 ID<br>&gt; <span class="hljs-type">ncx_transaction_id_t</span> txid = agt_cfg_txid_in_progress(NCX_CFGID_RUNNING);<br><br><br></code></pre></td></tr></table></figure><h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>SDN</tag>
+      
+      <tag>YumaPro</tag>
+      
+      <tag>Netconf</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>写点什么</title>
-    <link href="/2023/09/01/what-and-where/"/>
-    <url>/2023/09/01/what-and-where/</url>
+    <link href="/2023/09/01/write/"/>
+    <url>/2023/09/01/write/</url>
     
     <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
     
@@ -47,8 +70,8 @@
   
   <entry>
     <title>yumaPro How do I use GET2 callback?</title>
-    <link href="/2023/08/17/get2/"/>
-    <url>/2023/08/17/get2/</url>
+    <link href="/2023/08/17/GET2/"/>
+    <url>/2023/08/17/GET2/</url>
     
     <content type="html"><![CDATA[<p>GET2 回调函数对每个对象模板使用 1 个回调。服务器将通过此 API 发出“get”和“getnext”请求，回调代码将返回它所管理的数据的值节点。这些数据节点不在服务器数据树中维护。它们不会缓存在服务器中。</p><p>这些回调在调用时应返回部分或全部终端子节点（叶、叶列表、anyxml）。</p><p>GET2 回调从不返回复杂节点的子节点。复杂子节点应注册有自己的 get2 回调。<br>GET2 回调不支持配置数据。<br>请参阅 <a href="https://yumaworks.freshdesk.com/support/solutions/articles/1000285632">GET2 All In One (AIO)</a> 回调，一次性检索复杂节点。</p>]]></content>
     
@@ -70,8 +93,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="/2023/07/27/hello-world/"/>
-    <url>/2023/07/27/hello-world/</url>
+    <link href="/2023/07/27/hello_world/"/>
+    <url>/2023/07/27/hello_world/</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -83,8 +106,8 @@
   
   <entry>
     <title>Ok, Let&#39;s getting started with...</title>
-    <link href="/2023/07/27/with/"/>
-    <url>/2023/07/27/with/</url>
+    <link href="/2023/07/27/start/"/>
+    <url>/2023/07/27/start/</url>
     
     <content type="html"><![CDATA[]]></content>
     
