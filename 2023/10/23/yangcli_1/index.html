@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="itoo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="yangcli-pro IntroductionVariables |  变量yangcli-pro 程序使用多种类型的用户可访问变量。这些变量可以使用“show vars”命令和其他命令列出。变量引用由 1 或 2 个美元符号 (‘$’) 组成，后跟有效的标识符字符串（例如 $$global-log 或 $local-log ）变量的长度可以是 1 个或多个字符，并遵循标识符名称的 YANG 规">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yangcli-pro Introduction">
+<meta property="og:url" content="http://example.com/2023/10/23/yangcli_1/index.html">
+<meta property="og:site_name" content="Ito&#39;s blog">
+<meta property="og:description" content="yangcli-pro IntroductionVariables |  变量yangcli-pro 程序使用多种类型的用户可访问变量。这些变量可以使用“show vars”命令和其他命令列出。变量引用由 1 或 2 个美元符号 (‘$’) 组成，后跟有效的标识符字符串（例如 $$global-log 或 $local-log ）变量的长度可以是 1 个或多个字符，并遵循标识符名称的 YANG 规">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-23T09:48:00.000Z">
+<meta property="article:modified_time" content="2023-10-23T08:30:31.697Z">
+<meta property="article:author" content="itoo">
+<meta property="article:tag" content="yumaPro">
+<meta property="article:tag" content="yang_cli">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>yangcli-pro Introduction - Ito&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ito&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/wallhaven-v993o3.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="yangcli-pro Introduction"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-23 09:48" pubdate>
+          2023年10月23日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          85 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">yangcli-pro Introduction</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="yangcli-pro-Introduction"><a href="#yangcli-pro-Introduction" class="headerlink" title="yangcli-pro Introduction"></a>yangcli-pro Introduction</h2><h3 id="Variables-变量"><a href="#Variables-变量" class="headerlink" title="Variables |  变量"></a>Variables |  变量</h3><p>yangcli-pro 程序使用多种类型的用户可访问变量。这些变量可以使用“show vars”命令和其他命令列出。<br>变量引用由 1 或 2 个美元符号 (‘$’) 组成，后跟有效的标识符字符串（例如 $$global-log 或 $local-log ）<br>变量的长度可以是 1 个或多个字符，并遵循标识符名称的 YANG 规则。</p>
+<ul>
+<li>第一个字符必须是字母“A”到“Z”或“a”到“z”。</li>
+<li>到最后 2 个 nd 字符可以是字母“A”到“Z”或“a”到“z”、数字（“0”到“9”）、下划线（“_” )、短划线 (‘-‘) 或句点 (‘.’) 字符。</li>
+</ul>
+<p>支持 4 类参数：</p>
+<ul>
+<li>只读系统变量</li>
+<li>读写系统变量</li>
+<li>读写全局用户变量（保存在 $HOME&#x2F;.yuma 目录下）</li>
+<li>读写本地用户变量</li>
+</ul>
+<p>如果引用了不存在的变量（在语句的右侧），则会出现错误。<br>前 3 种类型是全局变量，这意味着它们可用于所有脚本的所有运行级别。最后一种类型称为局部变量，仅对当前脚本（或交互式 shell）的当前运行级别可见。有关运行级别的更多详细信息，请参阅以下部分。</p>
+<h3 id="Variable-Syntax-变量语法"><a href="#Variable-Syntax-变量语法" class="headerlink" title="Variable Syntax | 变量语法"></a>Variable Syntax | 变量语法</h3><p>| Syntax 句法  | Description 描述  | Example 例子 |<br>| :—– ——- |:—– ———-:| —    –:|<br>|    $$&lt;变量名&gt;     | 左侧：将全局变量设置为某个值 | $$saved_get &#x3D; get |<br>|    $$&lt;变量名&gt;    | 右侧：访问全局变量的值        | fill –target&#x3D;$$mytarget |<br>|  $&lt;变量名&gt; | 左侧：将局部变量设置为某个值       |  $myloglevel &#x3D; $$log-level |<br>|  $&lt;变量名&gt; | 右侧：访问具有该名称的任何变量的值       |   $myuser &#x3D; $user |</p>
+<h3 id="Read-only-System-Variables"><a href="#Read-only-System-Variables" class="headerlink" title="Read-only System Variables"></a>Read-only System Variables</h3><p>下表显示了 yangcli-pro 中可作为只读全局变量使用的 unix 环境变量。这些变量在程序启动时设置一次，并且不能在赋值语句的左侧使用</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$HOME</td>
+<td>$HOME环境变量</td>
+</tr>
+<tr>
+<td>$$HOSTNAME</td>
+<td>$HOST 或 $HOSTNAME 环境变量</td>
+</tr>
+<tr>
+<td>$$LANG</td>
+<td>$LANG environment variable</td>
+</tr>
+<tr>
+<td>$$PWD</td>
+<td>$PWD environment variable, when yangcli-pro was invoked</td>
+</tr>
+<tr>
+<td>$$SHELL</td>
+<td>$SHELL environment variable</td>
+</tr>
+<tr>
+<td>$$USER</td>
+<td>$USER environment variable</td>
+</tr>
+<tr>
+<td>$$YUMAPRO_DATAPATH</td>
+<td>$YUMAPRO_DATAPATH environment variable</td>
+</tr>
+<tr>
+<td>$$YUMAPRO_HOME</td>
+<td>$YUMAPRO_HOME environment variable</td>
+</tr>
+<tr>
+<td>$$YUMAPRO_MODPATH</td>
+<td>$YUMAPRO_MODPATH environment variable</td>
+</tr>
+<tr>
+<td>$$YUMAPRO_RUNPATH</td>
+<td>$YUMAPRO_RUNPATH environment variable</td>
+</tr>
+</tbody></table>
+<h3 id="Read-write-System-Variables"><a href="#Read-write-System-Variables" class="headerlink" title="Read-write System Variables"></a>Read-write System Variables</h3><p>下表显示了可以读取或更改（但不能删除）的 CLI 配置参数。如果在程序调用期间未设置特定参数，则关联变量将包含空字符串。</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$$HOME</td>
+<td>$HOME环境变量</td>
+</tr>
+<tr>
+<td>$$aliases-file</td>
+<td>–aliases-file configuration parameter</td>
+</tr>
+<tr>
+<td>$$allow-shell</td>
+<td>–allow-shell configuration parameter</td>
+</tr>
+<tr>
+<td>$$alt-names</td>
+<td>–alt-names configuration parameter</td>
+</tr>
+<tr>
+<td>$$ask-password</td>
+<td>–ask-password configuration parameter</td>
+</tr>
+<tr>
+<td>$$auto-discard-changes</td>
+<td>–auto-discard-changes parameter</td>
+</tr>
+<tr>
+<td>$$auto-keepalive</td>
+<td>–auto-keepalive configuration parameter</td>
+</tr>
+<tr>
+<td>$$auto-reconnect</td>
+<td>–auto-reconnect configuration parameter</td>
+</tr>
+<tr>
+<td>$$auto-reconnect-interval</td>
+<td>–auto-reconnect-interval configuration parameter</td>
+</tr>
+<tr>
+<td>$$auto-reconnect-max</td>
+<td>–auto-reconnect-max configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoaliases</td>
+<td>–autoaliases configuration parameter</td>
+</tr>
+<tr>
+<td>$$autocomp</td>
+<td>–autocomp configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoconfig</td>
+<td>–autoconfig configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoconfig-conf-mode</td>
+<td>–autoconfig-conf-mode configuration parameter</td>
+</tr>
+<tr>
+<td>$$autodevices</td>
+<td>–autodevices configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoeventhandlers</td>
+<td>–autoeventhandlers configuration parameter</td>
+</tr>
+<tr>
+<td>$$autohistory</td>
+<td>–autohistory configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoload</td>
+<td>–autoload configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoload-cache</td>
+<td>–autoload-cache configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoload-get</td>
+<td>–autoload-get configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoload-save-cache</td>
+<td>–autoload-save-cache configuration parameter</td>
+</tr>
+<tr>
+<td>$$autonotif</td>
+<td>–autonotif configuration parameter</td>
+</tr>
+<tr>
+<td>$$autonvsave</td>
+<td>–autonvsave configuration parameter</td>
+</tr>
+<tr>
+<td>$$autoschemaservers</td>
+<td>–autoschemaservers configuration parameter</td>
+</tr>
+<tr>
+<td>$$autosessions</td>
+<td>–autosessions configuration parameter</td>
+</tr>
+<tr>
+<td>$$autotest</td>
+<td>–autotest configuration parameter</td>
+</tr>
+<tr>
+<td>$$autousers</td>
+<td>–autousers configuration parameter</td>
+</tr>
+<tr>
+<td>$$autouservars</td>
+<td>–autouservars configuration parameter</td>
+</tr>
+<tr>
+<td>$$bad-data</td>
+<td>–bad-data configuration parameter</td>
+</tr>
+<tr>
+<td>$$break-key-mode</td>
+<td>–break-key-mode configuration parameter</td>
+</tr>
+<tr>
+<td>$$callhome-address</td>
+<td>–callhome-address configuration parameter</td>
+</tr>
+<tr>
+<td>$$callhome-enabled</td>
+<td>–callhome-enabled configuration parameter</td>
+</tr>
+<tr>
+<td>$$callhome-port</td>
+<td>–callhome-port configuration parameter</td>
+</tr>
+<tr>
+<td>$$callhome-tls-port</td>
+<td>–callhome-tls-port configuration parameter</td>
+</tr>
+<tr>
+<td>$$check-output</td>
+<td>–check-output configuration parameter</td>
+</tr>
+<tr>
+<td>$$check-output-error</td>
+<td>–check-output-error configuration parameter</td>
+</tr>
+<tr>
+<td>$$check-replies</td>
+<td>–check-replies configuration parameter</td>
+</tr>
+<tr>
+<td>$$check-replies-error</td>
+<td>–check-replies-error configuration parameter</td>
+</tr>
+<tr>
+<td>$$config-autosave</td>
+<td>–config-autosave configuration parameter</td>
+</tr>
+<tr>
+<td>$$config-commit-mode</td>
+<td>–config-commit-mode configuration parameter</td>
+</tr>
+<tr>
+<td>$$config-edit-mode</td>
+<td>–config-edit-mode configuration parameter</td>
+</tr>
+<tr>
+<td>$$default-module</td>
+<td>–default-module configuration parameter</td>
+</tr>
+<tr>
+<td>$$default-operation</td>
+<td><default-operation> parameter for <edit-config> operations</td>
+</tr>
+<tr>
+<td>$$display-mode</td>
+<td>–display-mode configuration parameter</td>
+</tr>
+<tr>
+<td>$$echo-notif-loglevel</td>
+<td>–echo-notif-loglevel configuration parameter</td>
+</tr>
+<tr>
+<td>$$echo-notifs</td>
+<td>–echo-notifs configuration parameter</td>
+</tr>
+<tr>
+<td>$$echo-replies</td>
+<td>–echo-replies configuration parameter</td>
+</tr>
+<tr>
+<td>$$encoding</td>
+<td>–encoding configuration parameter</td>
+</tr>
+<tr>
+<td>$$error-option</td>
+<td><error-option> parameter for <edit-config> operations</td>
+</tr>
+<tr>
+<td>$$fill-optional</td>
+<td>–fill-optional configuration parameter</td>
+</tr>
+<tr>
+<td>$$fixorder</td>
+<td>–fixorder configuration parameter</td>
+</tr>
+<tr>
+<td>$$help-width</td>
+<td>–help-width configuration parameter</td>
+</tr>
+<tr>
+<td>$$ignore-missing-vars</td>
+<td>–ignore-missing-vars configuration parameter</td>
+</tr>
+<tr>
+<td>$$indent</td>
+<td>–indent configuration parameter</td>
+</tr>
+<tr>
+<td>$$keepalive-interval</td>
+<td>–keepalive-interval configuration parameter</td>
+</tr>
+<tr>
+<td>$$leaflist-multi-line</td>
+<td>–leaflist-multi-line configuration parameter</td>
+</tr>
+<tr>
+<td>$$log-level</td>
+<td>–log-level configuration parameter</td>
+</tr>
+<tr>
+<td>$$match-names</td>
+<td>–match-names configuration parameter</td>
+</tr>
+<tr>
+<td>$$message-indent</td>
+<td>–message-indent configuration parameter</td>
+</tr>
+<tr>
+<td>$$optional</td>
+<td>–optional configuration parameter</td>
+</tr>
+<tr>
+<td>$$prompt</td>
+<td>–prompt configuration parameter (yp-shell only)</td>
+</tr>
+<tr>
+<td>$$prompt-type</td>
+<td>–prompt-type configuration parameter</td>
+</tr>
+<tr>
+<td>$$save-session-vars</td>
+<td>–save-session-vars configuration parameter</td>
+</tr>
+<tr>
+<td>$$script-input</td>
+<td>–script-input configuration parameter</td>
+</tr>
+<tr>
+<td>$$server</td>
+<td>–server configuration parameter</td>
+</tr>
+<tr>
+<td>$$shell-command</td>
+<td>–shell-command configuration parameter</td>
+</tr>
+<tr>
+<td>$$ssl-fallback-ok</td>
+<td>–ssl-fallback-ok configuration parameter</td>
+</tr>
+<tr>
+<td>$$term-length</td>
+<td>–term-length configuration parameter</td>
+</tr>
+<tr>
+<td>$$test-option</td>
+<td><test-option> parameter for the <edit-config> operation</td>
+</tr>
+<tr>
+<td>$$test-suite-file</td>
+<td>–test-suite-file configuration parameter</td>
+</tr>
+<tr>
+<td>$$time-rpcs</td>
+<td>–time-rpcs configuration parameter</td>
+</tr>
+<tr>
+<td>$$time-rpcs-stats</td>
+<td>–time-rpcs-stats configuration parameter</td>
+</tr>
+<tr>
+<td>$$time-rpcs-stats-file</td>
+<td>–time-rpcs-stats-file configuration parameter</td>
+</tr>
+<tr>
+<td>$$timeout</td>
+<td>–timeout configuration parameter</td>
+</tr>
+<tr>
+<td>$$use-data-templates</td>
+<td>–use-data-templates configuration parameter</td>
+</tr>
+<tr>
+<td>$$use-rawxml</td>
+<td>–use-rawxml configuration parameter</td>
+</tr>
+<tr>
+<td>$$use-session-vars</td>
+<td>–use-session-vars configuration parameter</td>
+</tr>
+<tr>
+<td>$$use-traceid</td>
+<td>–use-traceid configuration parameter</td>
+</tr>
+<tr>
+<td>$$use-xmlheader</td>
+<td>–use-xmlheader configuration parameter</td>
+</tr>
+<tr>
+<td>$$user</td>
+<td>–user configuration parameter</td>
+</tr>
+<tr>
+<td>$$uservars-file</td>
+<td>–uservars-file configuration parameter</td>
+</tr>
+<tr>
+<td>$$with-defaults</td>
+<td><with-defaults> retrieval parameter</td>
+</tr>
+<tr>
+<td>$$with-term-msg</td>
+<td>–with-term-msg configuration parameter</td>
+</tr>
+</tbody></table>
+<h3 id="Read-write-Global-User-Variables-读写全局用户变量-"><a href="#Read-write-Global-User-Variables-读写全局用户变量-" class="headerlink" title="Read-write Global User Variables | 读写全局用户变量 "></a>Read-write Global User Variables | 读写全局用户变量 </h3><p>如果在赋值语句的左侧使用了无法识别的全局变量（例如 $$foo），则将使用该名称创建一个全局用户变量。如果全局用户变量已经存在，那么它的值将被覆盖。</p>
+<p>uservars 命令可用于加载或存储这些变量，以便它们在引导时加载。默认情况下，用于存储这些变量的 XML 文件是 $HOME&#x2F;.yumapro&#x2F;yangcli-pro_uservars.xml 。</p>
+<h3 id="Read-write-Local-User-Variables"><a href="#Read-write-Local-User-Variables" class="headerlink" title="Read-write Local User Variables"></a>Read-write Local User Variables</h3><p>如果在赋值语句的左侧使用局部变量（例如 $foo），则将使用该名称创建一个局部用户变量。如果本地用户变量已经存在，那么它的值将被覆盖。如果变量是在脚本内创建的（即运行级别大于零），则当脚本退出时它将被删除。</p>
+<h3 id="Read-write-Session-User-Variables"><a href="#Read-write-Session-User-Variables" class="headerlink" title="Read-write Session User Variables"></a>Read-write Session User Variables</h3><p>如果 $$use-sessionvars 变量为 true，则全局变量将被视为特定于会话的变量，而活动会话是命名会话。在这种情况下，如果在赋值语句的左侧使用了无法识别的全局变量（例如 $$foo），则将使用该名称创建会话用户变量。如果会话用户变量已经存在，则其值将被覆盖。<br>如果使用数据模板，则会话特定的变量将用于替换模板内的变量引用，而不是全局变量。</p>
+<h2 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h2><p>文件内容可以在yangcli-pro语句中使用，类似于用户变量。<br>文件引用由“@”字符（“@”）组成，后跟有效的文件规范</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">session1</span>&gt; @<span class="hljs-string">foo</span>.<span class="hljs-string">yang</span> = <span class="hljs-built_in">get-schema</span> <span class="hljs-built_in">--identifier=foo</span> <span class="hljs-built_in">--format=YANG</span><br><br><span class="hljs-string">session1</span>&gt; <span class="hljs-string">mgrload</span> <span class="hljs-built_in">--module=foo</span><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>如果文件扩展名是“.yang”、“.log”、“.txt”或“.text”，那么该值（或命令输出）将被保存，并且yangcli-pro将剥离最外层的XML（如果需要）将请求的文件保存为纯文本文件。</li>
+<li>如果文件扩展名为“.json”，则文件将以 JSON 格式保存。</li>
+<li>否则，文件将以 XML 格式保存。用户设置的显示模式会影响 XML 输出。<ul>
+<li>如果显示模式为“xml-nons”，则将生成不带命名空间 (xmlns) 属性的 XML，而不是正常的 XML。</li>
+</ul>
+</li>
+</ul>
+<p>文件还可以用作命令中的参数替换。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">session1&gt; <span class="hljs-variable">$saved_get</span> = <span class="hljs-built_in">get</span> <span class="hljs-attribute">--filter</span>=@filter.xml <span class="hljs-attribute">--with-defaults</span>=explicit<br><br></code></pre></td></tr></table></figure>
+<p>如果引用的文件不存在或无法读取，则会发生错误。</p>
+<h2 id="Scripts-脚本"><a href="#Scripts-脚本" class="headerlink" title="Scripts |  脚本"></a>Scripts |  脚本</h2><p>任何命令都可以在交互式 shell 中输入，或者存储在脚本文件中，并使用 run 命令调用。脚本只是文本文件，使用的扩展名并不重要。<br>目前还没有像 RPC 操作那样的正式脚本模板。相反，位置参数可以传递给任何脚本。</p>
+<p>名为“–P1”到“–P9”的参数最多允许将 9 个参数传递给任何脚本。在每个脚本中，编号参数“$1”到“$9”可用，并且包含调用脚本时作为相应的 –Pn 参数传递的值。<br>如果一行仅包含可选空格，后跟井号字符“#”，则该行将被视为注释。这些行将被跳过。</p>
+<p>如果在脚本内的命令期间发生错误，或者在 NETCONF 会话期间从服务器接收到 ，则正在运行的脚本将被取消，如果这是嵌套脚本，则所有父脚本也将被取消被取消。</p>
+<p>Script Example: 脚本示例：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs perl">&gt; run <span class="hljs-keyword">connect</span> --P1=andy --P2==localhost --P3=yangrocks<br><br>// <span class="hljs-keyword">connect</span> script<br><br><span class="hljs-comment"># start a NETCONF session</span><br>$user = $1<br>$server = $2<br>$password = $3<br><br>&gt; <span class="hljs-keyword">connect</span> --user=$user --server=$server --password=$password<br></code></pre></td></tr></table></figure>
+
+<h3 id="Run-Levels-运行级别"><a href="#Run-Levels-运行级别" class="headerlink" title="Run Levels |  运行级别"></a>Run Levels |  运行级别</h3><p>运行命令可以出现在脚本中。<br>当 yangcli-pro 启动时，无论是交互模式还是批处理模式，脚本解释器都处于运行级别零。每次调用运行命令时，无论是在命令行还是在当前调用的脚本中，都会分配具有下一个更高值的新运行级别。局部变量仅在当前运行级别内可见。<br>yangcli-pro 最多支持 512 个运行级别。<br>脚本可以递归调用，但需要使用停止条件来中断递归（例如，从条件代码块内调用脚本）。</p>
+<h3 id="Conditional-Command-Blocks-条件命令块"><a href="#Conditional-Command-Blocks-条件命令块" class="headerlink" title="Conditional Command Blocks | 条件命令块"></a>Conditional Command Blocks | 条件命令块</h3><p>if、elif、else 和 end 命令用于创建“if 命令序列”,参考<a target="_blank" rel="noopener" href="https://docs.yumaworks.com/en/latest/yangcli/introduction.html#commands">Commands</a><br>这些命令之间出现的任何其他命令都是条件命令块的一部分。<br>这些块可以嵌套。当前条件状态是继承的，因此 false 条件块中的 if 命令序列将不会被执行。一个块可以包含零个或多个命令行，<br>这些命令的工作方式与 Python 等程序语言中的“if”表达式完全相同。请注意，缩进并不重要，但它可以用来使脚本更具可读性。</p>
+<p>if 命令启动一个新的 if 命令序列。接下来是条件命令块。当遇到同一 if 命令块中的 elif、else 或 end 命令时，该块结束。<br>if 命令序列中最多只会执行一个条件代码块。一旦条件命令块被执行，任何剩余的块将被跳过。<br>当前脚本运行级别可用的所有用户和系统变量都可以在 XPath 表达式中使用，以确定条件块状态（true 或 false）。</p>
+<h3 id="Conditional-Command-Loop-Blocks-条件命令循环块"><a href="#Conditional-Command-Loop-Blocks-条件命令循环块" class="headerlink" title="Conditional Command Loop Blocks | 条件命令循环块"></a>Conditional Command Loop Blocks | 条件命令循环块</h3><p>while 和 end 命令用于创建“while 循环序列”。<br>这些命令之间出现的任何其他命令都是条件命令循环块的一部分。<br>这些块可以嵌套。当前条件状态是继承的，因此 false 条件块内的 while 循环序列将不会被执行。一个块可以包含零个或多个命令行，循环条件可以是常量表达式。 maxloops 参数将防止无限循环，并且可用于将 while 循环序列用作简单的“for”循环，迭代特定次数。<br>当前脚本运行级别可用的所有用户和系统变量都可以在 XPath 表达式中使用，以确定条件块状态（继续或终止循环）。<br>以下脚本没有做任何有用的工作。提供它是为了演示一些简单的脚本结构。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># Sample Script 1</span><br><br><span class="hljs-variable">$x</span> = 0<br><span class="hljs-keyword">while</span> <span class="hljs-string">&#x27;$x &lt; 2&#x27;</span><br>  # this is a comment<br>  log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;start 1&#x27;</span><br>  <span class="hljs-variable">$x</span> = eval <span class="hljs-string">&#x27;$x + 1&#x27;</span><br>  <span class="hljs-variable">$y</span> = 0<br>  <span class="hljs-keyword">while</span> <span class="hljs-string">&#x27;$y &lt; 4&#x27;</span><br>    log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;start 2&#x27;</span><br>    <span class="hljs-variable">$y</span> = eval <span class="hljs-string">&#x27;$y + 1&#x27;</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;module-loaded(&#x27;test&#x27;)&quot;</span><br>      log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;module test loaded&#x27;</span><br>    elif <span class="hljs-string">&#x27;$x &gt; 1&#x27;</span><br>      log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;x&gt;1&#x27;</span><br>    elif <span class="hljs-string">&quot;feature-enabled(&#x27;test3&#x27;, &#x27;feature1&#x27;)&quot;</span><br>      log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;feature1&#x27;</span><br>    <span class="hljs-keyword">else</span><br>      log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;else&#x27;</span><br>    end<br>    log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;end 2&#x27;</span><br><br>  end<br>  log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;end 1&#x27;</span><br>end<br><span class="hljs-keyword">if</span> <span class="hljs-string">&quot;feature-enabled(&#x27;test5&#x27;, &#x27;feature-foo&#x27;)&quot;</span><br>  log-<span class="hljs-built_in">info</span> <span class="hljs-string">&#x27;feature-foo&#x27;</span><br>  <span class="hljs-built_in">run</span> add-foo-parms<br>end<br></code></pre></td></tr></table></figure>
+<p>以下脚本演示了如何对 ietf-interfaces.yang 数据模块运行多个编辑：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"># Sample Script <span class="hljs-number">2</span><br><br>$x = <span class="hljs-number">0</span><br>$y = <span class="hljs-built_in">int</span>erfaces<br>$z = <span class="hljs-keyword">interface</span><br>$<span class="hljs-symbol">value</span> = <span class="hljs-symbol">ianaift</span>:<span class="hljs-symbol">l2vlan</span><br><br><span class="hljs-symbol">while</span> &#x27;$<span class="hljs-symbol">x</span> &lt; <span class="hljs-symbol">5</span>&#x27;<br>    <span class="hljs-symbol">create</span> /<span class="hljs-symbol">if</span>:$<span class="hljs-symbol">y</span>/<span class="hljs-symbol">if</span>:$<span class="hljs-symbol">z</span>[<span class="hljs-symbol">if</span>:<span class="hljs-symbol">name</span>=&#x27;<span class="hljs-symbol">vlan</span>$<span class="hljs-symbol">x</span>&#x27;]/<span class="hljs-symbol">if</span>:<span class="hljs-symbol">type</span> <span class="hljs-symbol">value</span>=$<span class="hljs-symbol">value</span><br>    <span class="hljs-symbol">commit</span><br>    $<span class="hljs-symbol">x</span> = <span class="hljs-symbol">eval</span> &#x27;$<span class="hljs-symbol">x</span> + <span class="hljs-symbol">1</span>&#x27;<br><span class="hljs-symbol">end</span><br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Configuration-Mode-Editing"><a href="#Configuration-Mode-Editing" class="headerlink" title="Configuration Mode Editing"></a>Configuration Mode Editing</h2><p>如果当前会话连接到服务器，则可以使用配置模式（通常称为“配置模式”）。否则，进入配置模式的请求将被拒绝并显示错误消息。<br>这种附加编辑模式类似于路由器命令行界面。它可用于通过简化的界面编辑 YANG 数据存储节点：</p>
+<ul>
+<li>有少量配置模式命令可用</li>
+<li>所有YANG配置数据节点名称都是命令关键字</li>
+<li>数据节点名称可以缩写，就像RPC操作参数名称一样</li>
+<li>数据节点名称的制表符补全是上下文相关的，并且基于会话中可用的 YANG 模块</li>
+<li>当前上下文节点可以更改为配置中不同的 YANG 数据节点，这些节点称为子模式</li>
+<li>命令序列遵循 YANG 数据节点层次结构</li>
+</ul>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">XPath Example:<br><br>   /<span class="hljs-built_in">int</span>erfaces/<span class="hljs-keyword">interface</span>[<span class="hljs-symbol">name</span>=&#x27;<span class="hljs-symbol">eth0</span>&#x27;]<br><br><span class="hljs-symbol">CLI</span> <span class="hljs-symbol">Example</span>:<br><br>   <span class="hljs-symbol">interfaces</span> <span class="hljs-symbol">interface</span> <span class="hljs-symbol">eth0</span><br><br><span class="hljs-symbol">CLI</span> <span class="hljs-symbol">Example</span> <span class="hljs-symbol">With</span> <span class="hljs-symbol">Allowed</span> <span class="hljs-symbol">Keyword</span> <span class="hljs-symbol">Matching</span>:<br><br>   <span class="hljs-symbol">int</span> <span class="hljs-symbol">int</span> <span class="hljs-symbol">eth0</span><br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>列表条目后面始终跟随所有关键叶值（例如，接口 eth0）。<ul>
+<li>省略了键叶的名称（例如，在“interface”之后未指定“name”）</li>
+<li>如果键值有任何空格或特殊字符，则需要用引号引起来</li>
+</ul>
+</li>
+</ul>
+<h2 id="Configuration-Mode-Variations-配置模式变化"><a href="#Configuration-Mode-Variations-配置模式变化" class="headerlink" title="Configuration Mode Variations |  配置模式变化"></a>Configuration Mode Variations |  配置模式变化</h2><p>有一些 CLI 参数会影响配置模式的工作方式。每个参数还可以有一个相应的系统变量，可以在运行时而不是程序调用时设置。</p>
+<p>有一些 CLI 参数会影响配置模式的工作方式。每个参数还可以有一个相应的系统变量，可以在运行时而不是程序调用时设置。</p>
+<ul>
+<li><p>–autocomp：如果设置为“false”，则仅允许使用精确的节点名称。默认值为“true”，允许部分匹配关键字。</p>
+</li>
+<li><p>–autoconfig：如果设置为“false”，则制表符补全可能不可用。如果为“true”，则维护“正在运行”数据存储的副本。这是填充现有节点和值所必需的。</p>
+</li>
+<li><p>–autoconfig-conf-mode：如果“autoconfig”设置为“false”，并且此参数也设置为“false”，则某些选项卡完成功能将不可用。</p>
+</li>
+<li><p>–with-enable-mode：仅在“yp-shell”中可用。如果为“true”，则必须先进入启用模式，然后才能进入配置模式。</p>
+</li>
+<li><p>–restrict-edit-mode：仅在“yp-shell”中可用。如果为“true”，则配置模式是用户可用的唯一编辑模式。</p>
+</li>
+<li><p>–config-autosave：控制如何将编辑内容保存到服务器上的 NV 存储中。</p>
+</li>
+<li><p>–config-commit-mode：如果为“true”，则编辑将应用于“候选”数据存储。这允许以任何顺序将编辑发送到服务器，然后使用 commit 命令一次性应用所有内容。</p>
+</li>
+<li><p>–config-edit-mode：这个最重要的参数控制如何将编辑应用到服务器。 apply 和 exit 命令的工作方式有所不同，具体取决于此参数。</p>
+</li>
+</ul>
+<p>有3种模式：<br>    - line：输入每行后，编辑将自动应用。<br>    - level：使用 exit 命令自动应用编辑，或使用 apply 命令手动应用。这是默认模式<br>    - manual手动：仅使用 apply 命令手动应用编辑。</p>
+<p>有关更多详细信息，请参阅 config-edit-mode 示例部分。<a target="_blank" rel="noopener" href="https://docs.yumaworks.com/en/latest/cli/yangcli-pro.html#config-edit-mode-examples">config-edit-mode</a></p>
+<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>该从哪开始 …   …</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/yumaPro/" class="print-no-link">#yumaPro</a>
+      
+        <a href="/tags/yang-cli/" class="print-no-link">#yang_cli</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>yangcli-pro Introduction</div>
+      <div>http://example.com/2023/10/23/yangcli_1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>itoo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/28/EDIT2/" title="yumaPro Edit Callback Overview">
+                        <span class="hidden-mobile">yumaPro Edit Callback Overview</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">Up Time...</span> <span id="times"> ...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
