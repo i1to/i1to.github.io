@@ -8,7 +8,7 @@
 
 ## 使用
 
-点击[链接](https://hzpt-inet-club.github.io/english-note/)打开网页直接可以阅读和学习。V
+点击[链接](https://vollereito.github.io/)打开网页直接可以阅读和学习。V
 
 
 ## 说明
