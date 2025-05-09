@@ -13,8 +13,6 @@ tags:
   - SDN
 ---
 
-# Network Protocol Documentation Navigation with GitBook
-
 As network engineers and developers, a deep understanding of network protocol specifications is crucial. I've compiled a series of RFC documents on network protocols such as NETCONF and YANG, and made them available on GitBook for better reading and learning. This article provides a navigation guide to these documents.
 
 ## What is GitBook?

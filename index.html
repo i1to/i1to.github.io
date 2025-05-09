@@ -1,3 +1,67 @@
 ---
-layout: home
+layout: default
 ---
+
+<h1>欢迎来到 <span class='jump-effect'>i1to</span> 的博客</h1>
+
+<big>这是我的个人博客，主要用于记录学习过程和分享技术心得。</big>
+
+<big>我是一名对网络技术和编程充满热情的开发者，特别关注以下领域：
+<span class="nowrap"><img src='/images/icons/research.svg' alt='' class="icon"/>_网络协议_</span>,
+<span class="nowrap"><img src='/images/icons/design.svg' alt='' class="icon"/>_NETCONF_</span>,
+<span class="nowrap"><img src='/images/icons/code.svg' alt='' class="icon"/>_YANG_</span>,
+<span class="nowrap"><img src='/images/icons/test.svg' alt='' class="icon"/>_网络自动化_</span>,
+<span class="nowrap"><img src='/images/icons/track.svg' alt='' class="icon"/>_开源技术_</span>,
+和
+<span class="nowrap"><img src='/images/icons/lead.svg' alt='' class="icon"/>_云计算_</span>。
+</big>
+
+<big>如果您有任何问题或建议，欢迎通过
+<a href="https://github.com/{{ site.github_username }}" class="nowrap"><img src="/images/icons/github.svg" alt="Github logo" role="img" class="icon"/>Github</a>
+与我联系。</big>
+
+## 我的 <span class="nowrap"><img src='/images/icons/writings.svg' alt='' class="icon"/>博客文章</span>
+
+### 技术文章
+
+<ul class="post-list">
+  {% assign writings_posts = site.posts | where: "categories", "Diary" | sort: "date" | reverse %}
+  {% for post in writings_posts limit:5 %}
+    <li>
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </div>
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ post.url | relative_url }}" class="post-read-more">阅读更多 →</a>
+    </li>
+  {% endfor %}
+</ul>
+
+[查看更多 <span class="nowrap"><img src='/images/icons/writings.svg' alt='' class="icon"/>技术文章</span> →](/writings)
+
+### 网络协议文档
+
+<ul class="post-list">
+  {% assign readings_posts = site.posts | where: "tags", "GitBook" | sort: "date" | reverse %}
+  {% for post in readings_posts limit:5 %}
+    <li>
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </h2>
+      <div class="post-meta">
+        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </div>
+      <div class="post-excerpt">
+        {{ post.excerpt }}
+      </div>
+      <a href="{{ post.url | relative_url }}" class="post-read-more">阅读更多 →</a>
+    </li>
+  {% endfor %}
+</ul>
+
+[查看更多 <span class="nowrap"><img src='/images/icons/reading-takeaways.svg' alt='' class="icon"/>网络协议文档</span> →](/reading-takeaways)

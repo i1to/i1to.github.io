@@ -9,8 +9,6 @@ tags:
   - Blogging
 ---
 
-# Hello World
-
 ## Why I Started This Blog
 
 I've decided to start a blog. I've been considering writing one for a long time, but I never knew what to write about.

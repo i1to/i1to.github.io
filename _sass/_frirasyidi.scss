@@ -1,0 +1,211 @@
+// 添加 frirasyidi 风格的样式
+
+// 跳跃效果
+.jump-effect {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// 图标样式
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
+// 不换行
+.nowrap {
+  white-space: nowrap;
+}
+
+// 移动友好的表格
+.mobile-friendly {
+  width: 100%;
+  border-collapse: collapse;
+  
+  td {
+    padding: 10px 0;
+    vertical-align: top;
+    border-bottom: 1px solid $lightGray;
+  }
+  
+  @include mobile {
+    display: block;
+    
+    tr {
+      display: block;
+      margin-bottom: 20px;
+      border-bottom: 2px solid $lightGray;
+    }
+    
+    td {
+      display: block;
+      border: none;
+      padding: 5px 0;
+    }
+  }
+}
+
+// 带行号的表格
+.with-row-counter {
+  counter-reset: row-num;
+  
+  tr {
+    counter-increment: row-num;
+    
+    &:before {
+      content: counter(row-num) ".";
+      display: table-cell;
+      padding-right: 10px;
+      text-align: right;
+      color: $gray;
+    }
+  }
+  
+  @include mobile {
+    tr:before {
+      display: block;
+      float: left;
+      padding-right: 5px;
+    }
+  }
+}
+
+// 文章列表样式
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    margin-bottom: 30px;
+    border-bottom: 1px solid $lightGray;
+    padding-bottom: 20px;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .post-meta {
+    font-size: 14px;
+    color: $gray;
+    margin-bottom: 10px;
+  }
+  
+  .post-excerpt {
+    margin-bottom: 10px;
+  }
+  
+  .post-read-more {
+    font-weight: bold;
+  }
+}
+
+// 页面标题
+.page-heading {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $lightGray;
+}
+
+// 大字体
+big {
+  font-size: 1.2em;
+  line-height: 1.6;
+  display: block;
+  margin-bottom: 20px;
+}
+
+// 源引用
+.source {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  color: $gray;
+  margin-top: 10px;
+}
+
+// 文章元数据
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  color: $gray;
+  margin-bottom: 20px;
+  
+  .post-date, .post-categories, .post-tags {
+    display: flex;
+    align-items: center;
+    
+    svg {
+      margin-right: 5px;
+    }
+  }
+}
+
+// 标签云
+.tag-cloud {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+  li {
+    display: inline-block;
+  }
+  
+  a {
+    display: inline-block;
+    background-color: $lightGray;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: darken($lightGray, 10%);
+      text-decoration: none;
+    }
+  }
+}
+
+// 分类列表
+.category-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $lightGray;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}
