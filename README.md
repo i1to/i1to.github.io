@@ -1,10 +1,10 @@
 
-<h1 align="center">V的个人静态博客</h1>
+<h1 align="center">i1to的个人静态博客</h1>
 
 <p align="center">
-  <a href="https://hexo.io/zh-cn/"><img src="https://img.shields.io/badge/框架-Hexo-blue" alt="Hexo"></a>
-  <a href="https://github.com/fluid-dev/hexo-theme-fluid"><img src="https://img.shields.io/badge/主题-Fluid-brightgreen" alt="Fluid"></a>
+  <a href="https://jekyllrb.com/"><img src="https://img.shields.io/badge/框架-Jekyll-red" alt="Jekyll"></a>
   <a href="https://pages.github.com"><img src="https://img.shields.io/badge/部署-GitHub_Pages-black" alt="GitHub Pages"></a>
+  <a href="https://github.com/i1to/i1to.github.io"><img src="https://img.shields.io/badge/源码-GitHub-blue" alt="GitHub"></a>
 </p>
 
 ## 📝 博客简介
@@ -24,8 +24,7 @@
 
 ## 🛠️ 技术栈
 
-- **框架**: [Hexo](https://hexo.io/zh-cn/) - 快速、简洁且高效的博客框架
-- **主题**: [Fluid](https://github.com/fluid-dev/hexo-theme-fluid) - 一款简洁、优雅的 Hexo 主题
+- **框架**: [Jekyll](https://jekyllrb.com/) - 简单、可扩展的静态网站生成器
 - **部署**: [GitHub Pages](https://pages.github.com) - 直接从 GitHub 仓库托管静态网站
 - **编写**: 所有文章使用 [Markdown](https://daringfireball.net/projects/markdown/) 格式编写
 
@@ -33,16 +32,47 @@
 
 ```
 .
-├── 2023/                # 按年份组织的博客文章
-│   ├── 07/             # 7月的文章
-│   ├── 08/             # 8月的文章
-│   ├── 09/             # 9月的文章
-│   └── 10/             # 10月的文章
-├── about/              # 关于页面
-├── archives/           # 归档页面
-├── categories/         # 分类页面
-├── tags/               # 标签页面
-└── ...
+├── _posts/             # 博客文章目录
+├── _layouts/           # 布局模板
+├── _includes/          # 可重用的HTML组件
+├── assets/             # 静态资源（CSS、JS、图片等）
+├── _config.yml         # Jekyll配置文件
+├── index.md            # 首页
+├── about.md            # 关于页面
+├── archives.md         # 归档页面
+├── categories.md       # 分类页面
+└── tags.md             # 标签页面
+```
+
+## 🚀 本地运行
+
+1. 确保已安装 [Ruby](https://www.ruby-lang.org/) 和 [Bundler](https://bundler.io/)
+2. 克隆仓库：`git clone https://github.com/i1to/i1to.github.io.git`
+3. 进入目录：`cd i1to.github.io`
+4. 安装依赖：`bundle install`
+5. 启动本地服务器：`bundle exec jekyll serve`
+6. 在浏览器中访问：`http://localhost:4000`
+
+## 📝 创建新文章
+
+在 `_posts` 目录下创建一个新的 Markdown 文件，文件名格式为 `YYYY-MM-DD-title.md`，例如 `2023-05-01-hello-world.md`。
+
+文件开头需要包含 YAML 头信息：
+
+```yaml
+---
+layout: post
+title: "文章标题"
+date: YYYY-MM-DD HH:MM:SS
+categories:
+  - 分类1
+  - 分类2
+tags:
+  - 标签1
+  - 标签2
+---
+
+这里是文章内容...
 ```
 
 ## 📞 联系方式
