@@ -2,33 +2,43 @@
 layout: default
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+<div class="posts">
+  {% for post in paginator.posts %}
+    <article class="post">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-  {{ content }}
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "最新文章" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%Y年%m月%d日" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    <p class="rss-subscribe">通过 <a href="{{ "/feed.xml" | relative_url }}">RSS</a> 订阅</p>
-  {%- endif -%}
-
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">阅读更多</a>
+    </article>
+  {% endfor %}
 </div>
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; 上一页</a>
+  {% else %}
+    <span>&laquo; 上一页</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | relative_url }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">下一页 &raquo;</a>
+  {% else %}
+    <span>下一页 &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
