@@ -1,0 +1,63 @@
+<div class="wrapper-footer">
+  <div class="container">
+    <footer class="footer">
+      <div class="footer-social">
+        {% include svg-icons.html %}
+      </div>
+      <div class="footer-info">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.name }}. All rights reserved.</p>
+        <p>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> | 
+           Theme: <a href="https://github.com/i1to/i1to.github.io" target="_blank">i1to</a></p>
+        <p><span id="runtime_span"></span>
+           <script>
+             function show_runtime() {
+               window.setTimeout("show_runtime()", 1000);
+               const X = new Date("05/09/2023 00:00:00");
+               const Y = new Date();
+               const T = (Y.getTime() - X.getTime());
+               const M = 24 * 60 * 60 * 1000;
+               const a = T / M;
+               const A = Math.floor(a);
+               const b = (a - A) * 24;
+               const B = Math.floor(b);
+               const c = (b - B) * 60;
+               const C = Math.floor((b - B) * 60);
+               const D = Math.floor((c - C) * 60);
+               document.getElementById("runtime_span").innerHTML = "本站已运行: " + A + "天" + B + "小时" + C + "分" + D + "秒";
+             }
+             show_runtime();
+           </script>
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<style>
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-social {
+    margin-bottom: 15px;
+  }
+  .footer-info {
+    font-size: 14px;
+    color: #666;
+  }
+  .footer-info p {
+    margin: 5px 0;
+  }
+  .footer-info a {
+    color: #4183C4;
+    text-decoration: none;
+  }
+  .footer-info a:hover {
+    text-decoration: underline;
+  }
+  #runtime_span {
+    font-style: italic;
+  }
+</style>

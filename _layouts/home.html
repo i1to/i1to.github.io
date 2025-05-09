@@ -2,6 +2,37 @@
 layout: default
 ---
 
+<style>
+  .posts {
+    margin-top: 20px;
+  }
+  .post {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .post h1 {
+    margin-top: 0;
+    font-size: 28px;
+  }
+  .post .entry {
+    margin: 15px 0;
+  }
+  .post .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4183C4;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .no-posts {
+    text-align: center;
+    margin: 50px 0;
+  }
+</style>
+
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">

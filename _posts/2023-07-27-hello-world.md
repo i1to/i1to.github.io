@@ -2,18 +2,38 @@
 layout: post
 title: Hello World
 date: 2023-07-27 09:48:00
-categories: 
+categories:
   - Diary
 tags:
-  - Fluid
-  - Hexo
+  - Jekyll
+  - Blogging
 ---
 
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+# Hello World
 
-## Quick Start
+## Why I Started This Blog
 
-我决定开一个博客。我早就考虑开始写一个，但我从来不知道该写什么。
-常常感觉科技中的每一个问题都已经在其他人的博客上得到了充分的解释，而且比我做的还要好。然而，事情并非总是如此。很多时候，我必须做几次谷歌搜索才能找出问题所在。有时，在花几个小时跳谷歌舞并搜索互联网之后，我拼凑出一个解决方案来解决实际上没有在任何人的博客上描述的问题。我意识到，我可以写的正是这些解决方案。当然，任何有头脑的人都可以自己解决问题，但通过博客，我可能会为未来的 搜索节省一些时间。我还发现写作可以帮助我跟踪我已经解决的问题，并帮助其他人更好地了解我花时间做的事情。我总是纠结于"告诉我你在这个项目中遇到的一些挑战"或"你处理过的最困难的错误是什么"这样的面试问题，不幸地是，我很倾向于忘记我做过的事情。开始做接下来的事情。是的！这个博客可以作为我做过的一些事情的记录，我只需要阅读我写的东西来刷新我的想法。也许我对写博客最大的反对是我觉得我没有足够的时间来写它。碰巧，这仍然是一个反对意见。 我计划一有机会就写，但这个博客和其他任何东西一样都是一个实验。我正在试一试 Jekyll 和 Octopress 3，虽然我以后可能会尝试其他平台。为了实现这一目标，我坚持使用默认的 Octopress 主题（令完美主义者感到恐惧），但它实际上一点也不差。所以，现在我有一个博客了! 
+I've decided to start a blog. I've been considering writing one for a long time, but I never knew what to write about.
 
-[Hello,world](https://reberhardt.com/blog/2016/01/30/hello-world.html) –Ryan
+I often felt that every technical problem had already been thoroughly explained on someone else's blog, and probably better than I could do it. However, that's not always the case. Many times, I've had to perform multiple Google searches to identify the issue. Sometimes, after spending hours searching the internet, I've pieced together a solution to a problem that wasn't actually described on anyone's blog.
+
+I realized that these solutions are exactly what I could write about. Of course, anyone with a good mind can solve problems themselves, but through blogging, I might save future searchers some time. I've also found that writing helps me keep track of problems I've solved and helps others better understand what I spend my time doing.
+
+I always struggle with interview questions like "Tell me about some challenges you faced in this project" or "What's the most difficult bug you've dealt with?" Unfortunately, I tend to forget what I've done once I move on to the next thing. Yes! This blog can serve as a record of some of the things I've done, and I just need to read what I've written to refresh my ideas.
+
+Perhaps my biggest objection to blogging is that I feel I don't have enough time to write. As it happens, this is still an objection. I plan to write whenever I get the chance, but this blog, like anything else, is an experiment. I'm trying out Jekyll, although I might try other platforms later. To get started, I'm sticking with a simple theme (to the horror of perfectionists), but it's actually not bad at all.
+
+So, now I have a blog!
+
+## Moving Forward
+
+This blog will focus on:
+
+1. **Technical solutions** to problems I encounter
+2. **Learning notes** from my studies and research
+3. **Project documentation** to track my work
+4. **Thoughts and reflections** on technology and development
+
+I hope that by sharing my experiences, I can contribute to the community and create a valuable resource for others facing similar challenges.
+
+[Hello, world](https://reberhardt.com/blog/2016/01/30/hello-world.html) – Inspired by Ryan
