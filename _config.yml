@@ -91,6 +91,11 @@ exclude:
   - js
   - links
   - xml
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - node_modules
 
 # Pagination settings
 paginate: 10
