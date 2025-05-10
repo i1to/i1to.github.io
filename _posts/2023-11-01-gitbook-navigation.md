@@ -27,43 +27,43 @@ I use GitBook to organize and publish RFC documents related to network protocols
 
 NETCONF provides a mechanism through which network device configurations can be installed, manipulated, and deleted. It uses XML-based data encoding for configuration data and protocol messages.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc6241.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc6241/){:target="_blank"}
 
 ### YANG Data Modeling Language (RFC 6020)
 
 YANG is a language for modeling network configuration and state data. It's designed to create conceptual models of configuration and state data that are implemented by network management protocols like NETCONF.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc-6020.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc-6020/){:target="_blank"}
 
 ### NETCONF Event Notifications (RFC 5277)
 
 This RFC defines the event notification mechanism for the NETCONF protocol, allowing network devices to send asynchronous messages to subscribed clients, notifying them of changes in device status.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc-5277.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc-5277/){:target="_blank"}
 
 ### NETCONF over SSH (RFC 4742)
 
 This document describes how to use Secure Shell (SSH) as the transport layer for NETCONF messages, ensuring the security of network configuration operations.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc-4742.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc-4742/){:target="_blank"}
 
 ### YANG 1.1 Data Modeling Language (RFC 7950)
 
 YANG 1.1 is an updated version of the YANG language, adding new features and improvements that make data models more flexible and powerful.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc-7950.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc-7950/){:target="_blank"}
 
 ### YANG Interface Types Definition (RFC 7223)
 
 This RFC defines a set of YANG modules for modeling configuration and state data for network interfaces, providing standardized data models for network device interfaces.
 
-[View Documentation](https://github.com/i1to/gitbooks/blob/main/rfc7223.md){:target="_blank"}
+[View Documentation]({{ site.baseurl }}/gitbook/rfc7223/){:target="_blank"}
 
 ## YumaPro Related Documentation
 
 YumaPro is a suite of tools for developing and deploying network management solutions based on NETCONF and YANG. Here are links to related documentation:
 
-[View YumaPro Documentation](https://github.com/i1to/gitbooks/tree/main/yumaPro){:target="_blank"}
+[View YumaPro Documentation]({{ site.baseurl }}/gitbook/yumapro/){:target="_blank"}
 
 ## How to Use These Documents
 
@@ -74,7 +74,7 @@ These documents have been compiled during my learning and work process, and prim
 - Practical application examples and best practices
 - Common issues and solutions
 
-You can access the documents directly on GitHub by clicking the links above. For a better reading experience, I recommend cloning the repository and viewing it locally with GitBook:
+You can access the documents directly on this website by clicking the links above. You can also browse all documents from the [GitBook index page]({{ site.baseurl }}/gitbook/). If you prefer to view the documents locally, you can clone the repository:
 
 ```bash
 git clone https://github.com/i1to/gitbooks.git
