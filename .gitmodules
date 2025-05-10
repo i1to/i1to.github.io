@@ -1,0 +1,3 @@
+[submodule "gitbooks"]
+	path = gitbooks
+	url = https://github.com/i1to/gitbooks.git
