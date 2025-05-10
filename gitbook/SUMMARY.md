@@ -1,6 +1,8 @@
 # 目录
 
 * [首页](README.md)
+* [RFCs111](RFCs111/index.md)
+* [Template Page](RFCs111/template-page.md)
 * [安装 GitBook CLI（如果尚未安装）](index.md)
 * [RFC  4742](rfc-4742.md)
 * [RFC 5277](rfc-5277.md)
