@@ -5,25 +5,30 @@ permalink: /about/
 ---
 
 <div style="text-align: center; margin-bottom: 30px;">
-  <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="头像" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #4183C4;">
+  <img src="https://github.com/i1to.png" alt="头像" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #4183C4;">
 </div>
 
 # <img src='/images/icons/research.svg' alt='' class="icon"/>&nbsp;<span class='jump-effect'>**i1to**</span> 的个人博客
 
+> "当你生活中遇到问题，觉得如果以前要有人在这个地方做点什么就好了，这个人就是你。"
+>
+> — Hacker News 读者
+
 这是我的个人博客，主要用于记录学习过程和分享技术心得。通过这个平台，我希望能够：
 
 - 📚 整理和分享我的学习笔记和技术文章
-- 🔍 探索和研究新的技术和工具
-- 🌐 与志同道合的朋友交流和学习
+- 🔍 探索和研究网络协议和自动化技术
+- 🌐 构建网络技术知识库，帮助他人学习
+- 💡 记录解决问题的方法和思路
 
-<big>我是一名对网络技术和编程充满热情的开发者，特别关注以下领域：
-<img src='/images/icons/research.svg' alt='' class="icon"/>&nbsp;_网络协议_,
-<img src='/images/icons/design.svg' alt='' class="icon"/>&nbsp;_NETCONF_,
-<img src='/images/icons/code.svg' alt='' class="icon"/>&nbsp;_YANG_,
+<big>我是一名专注于Linux网络开发的工程师，对网络基础设施和协议有深入研究。我特别关注以下领域：
+<img src='/images/icons/research.svg' alt='' class="icon"/>&nbsp;_网络协议分析_,
+<img src='/images/icons/design.svg' alt='' class="icon"/>&nbsp;_NETCONF/YANG_,
+<img src='/images/icons/code.svg' alt='' class="icon"/>&nbsp;_Linux网络编程_,
 <img src='/images/icons/test.svg' alt='' class="icon"/>&nbsp;_网络自动化_,
 <img src='/images/icons/track.svg' alt='' class="icon"/>&nbsp;_开源技术_,
 和
-<img src='/images/icons/lead.svg' alt='' class="icon"/>&nbsp;_云计算_。
+<img src='/images/icons/lead.svg' alt='' class="icon"/>&nbsp;_网络性能优化_。
 </big>
 
 ## <img src='/images/icons/writings.svg' alt='' class="icon"/>&nbsp;技能和工具
@@ -32,29 +37,29 @@ permalink: /about/
   <tr>
     <td>编程语言</td>
     <td>
-      <strong>Python, JavaScript, Go</strong><br/>
-      这些是我主要使用的编程语言，用于网络自动化、Web 开发和云原生应用。
+      <strong>C, C++, Python, Shell</strong><br/>
+      这些是我主要使用的编程语言，用于Linux网络开发、系统编程和网络自动化。
     </td>
   </tr>
   <tr>
     <td>网络技术</td>
     <td>
-      <strong>NETCONF, YANG, RESTCONF</strong><br/>
-      我专注于这些网络配置和管理协议，以实现网络自动化和可编程性。
+      <strong>TCP/IP, NETCONF, YANG, RESTCONF</strong><br/>
+      我专注于网络协议栈和网络配置管理协议，深入研究网络基础设施和自动化。
     </td>
   </tr>
   <tr>
-    <td>开发工具</td>
+    <td>Linux技能</td>
     <td>
-      <strong>Git, Docker, VS Code</strong><br/>
-      这些是我日常开发中使用的工具，帮助我提高开发效率和代码质量。
+      <strong>内核网络栈, eBPF, 系统编程</strong><br/>
+      我熟悉Linux内核网络子系统，能够进行底层网络开发和性能优化。
     </td>
   </tr>
   <tr>
-    <td>云平台</td>
+    <td>工具与平台</td>
     <td>
-      <strong>AWS, Azure</strong><br/>
-      我熟悉这些云平台的服务和架构，用于部署和管理云原生应用。
+      <strong>Git, Wireshark, tcpdump, Linux性能工具</strong><br/>
+      这些是我日常开发和调试中使用的工具，帮助我分析网络问题和优化性能。
     </td>
   </tr>
 </table>
@@ -63,16 +68,29 @@ permalink: /about/
 
 在这个博客中，你可以找到：
 
-- **技术教程和指南**：分享我在学习和工作中积累的经验和知识
-- **学习笔记和心得**：记录我在学习过程中的思考和收获
-- **项目展示和案例分析**：展示我的项目和解决方案
-- **行业动态和趋势分析**：分享我对行业发展的观察和思考
+- **技术文章与教程**：详细解析网络协议和Linux网络开发相关知识
+- **学习笔记与心得**：记录技术学习过程中的发现和思考
+- **项目展示与分析**：分享个人项目的开发过程和技术选型
+- **GitBook文档库**：提供NETCONF、YANG等网络协议的RFC文档中英对照版
+
+### GitBook文档库
+
+我的博客集成了GitBook风格的文档库，提供网络协议相关的RFC文档，包括：
+
+- **NETCONF协议**：NETCONF配置协议、NETCONF over SSH、NETCONF事件通知等
+- **YANG数据建模**：YANG数据建模语言、YANG 1.1数据建模语言、YANG接口类型定义等
+- **YumaPro相关文档**：YumaPro工具套件的使用文档
+
+访问[GitBook文档库](https://i1to.github.io/gitbook-docs/)浏览所有文档。
 
 ## <img src='/images/icons/github.svg' alt='' class="icon"/>&nbsp;联系方式
 
 如有任何问题、建议或合作意向，欢迎通过以下方式联系我：
 
 - **GitHub**: [i1to](https://github.com/i1to)
+- **Email**: [yt147612165686@gmail.com](mailto:yt147612165686@gmail.com)
+- **知乎**: [volleritoo](https://www.zhihu.com/people/volleritoo)
+- **Bilibili**: [i1to](https://space.bilibili.com/306494243)
 
 ---
 
