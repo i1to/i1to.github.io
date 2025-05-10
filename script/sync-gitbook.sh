@@ -12,7 +12,7 @@ mkdir -p gitbook
 
 # 同步文件
 echo "正在同步Markdown文件..."
-find gitbooks -name "*.md" | while read file; do
+find gitbooks -name "*.md" -not -path "*/\.git/*" | while read file; do
   # 获取相对路径
   rel_path=${file#gitbooks/}
   # 创建目标目录
@@ -25,7 +25,7 @@ done
 
 # 同步图片和其他资源
 echo "正在同步图片和其他资源..."
-find gitbooks -type f -not -name "*.md" | while read file; do
+find gitbooks -type f -not -name "*.md" -not -path "*/\.git/*" | while read file; do
   # 获取相对路径
   rel_path=${file#gitbooks/}
   # 创建目标目录
