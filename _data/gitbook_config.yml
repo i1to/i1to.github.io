@@ -1,0 +1,83 @@
+# GitBook 配置文件
+# 用于管理 GitBook 文档的结构和导航
+
+# 文档库基本信息
+info:
+  title: "网络协议文档库"
+  description: "收集整理的网络协议文档，包括 NETCONF、YANG 等网络协议的 RFC 文档"
+  author: "i1to"
+  github_repo: "https://github.com/i1to/gitbooks"
+
+# 文档分类
+categories:
+  - name: "NETCONF 协议"
+    description: "NETCONF 配置协议相关文档"
+    icon: "netconf-icon.svg"
+    documents:
+      - title: "NETCONF 配置协议 (RFC 6241)"
+        path: "rfc6241/"
+        description: "NETCONF 配置协议的核心规范"
+      - title: "NETCONF over SSH (RFC 4742)"
+        path: "rfc-4742/"
+        description: "NETCONF 基于 SSH 的传输层规范"
+      - title: "NETCONF 事件通知 (RFC 5277)"
+        path: "rfc-5277/"
+        description: "NETCONF 事件通知机制规范"
+        
+  - name: "YANG 数据建模"
+    description: "YANG 数据建模语言相关文档"
+    icon: "yang-icon.svg"
+    documents:
+      - title: "YANG 数据建模语言 (RFC 6020)"
+        path: "rfc-6020/"
+        description: "YANG 数据建模语言的核心规范"
+      - title: "YANG 1.1 数据建模语言 (RFC 7950)"
+        path: "rfc-7950/"
+        description: "YANG 1.1 版本的数据建模语言规范"
+      - title: "YANG 接口类型定义 (RFC 7223)"
+        path: "rfc7223/"
+        description: "YANG 接口类型定义规范"
+        
+  - name: "YumaPro 相关文档"
+    description: "YumaPro 工具套件相关文档"
+    icon: "yumapro-icon.svg"
+    documents:
+      - title: "YumaPro 文档"
+        path: "yumapro/"
+        description: "YumaPro 工具套件的使用文档"
+
+# 文档阅读选项
+reading_options:
+  - name: "在线阅读"
+    description: "直接在浏览器中阅读文档"
+    url: "/gitbook/"
+    icon: "online-icon.svg"
+    
+  - name: "本地阅读"
+    description: "克隆 GitHub 仓库在本地查看"
+    command: |
+      git clone https://github.com/i1to/gitbooks.git
+      cd gitbooks
+      # 安装 GitBook CLI（如果尚未安装）
+      npm install -g gitbook-cli
+      # 启动 GitBook 服务器
+      gitbook serve
+    icon: "local-icon.svg"
+
+# 文档特点
+features:
+  - name: "双语对照"
+    description: "原始 RFC 文本的英中翻译，方便对照理解"
+    icon: "bilingual-icon.svg"
+    
+  - name: "注释解释"
+    description: "关键概念的解释和注释，帮助理解复杂内容"
+    icon: "annotation-icon.svg"
+    
+  - name: "实例说明"
+    description: "实际应用示例和最佳实践，便于实际操作"
+    icon: "example-icon.svg"
+    
+  - name: "问题解答"
+    description: "常见问题和解决方案，解决实际应用中的困惑"
+    icon: "faq-icon.svg"
