@@ -10,9 +10,9 @@ permalink: /about/
 
 # <img src='/images/icons/research.svg' alt='' class="icon"/>&nbsp;<span class='jump-effect'>**i1to**</span> 的个人博客
 
-> "当你生活中遇到问题，觉得如果以前要有人在这个地方做点什么就好了，这个人就是你。"
+> 
 >
-> — Hacker News 读者
+> 
 
 这是我的个人博客，主要用于记录学习过程和分享技术心得。通过这个平台，我希望能够：
 
