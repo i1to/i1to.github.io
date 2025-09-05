@@ -206,7 +206,7 @@ img {
 }
 
 .site-description {
-  display: none;
+  display: none !important;
 }
 
 nav {
@@ -361,7 +361,7 @@ footer {
 }
 
 .site-description {
-  display: none;
+  display: none !important;
 }
 
 // Navigation improvements

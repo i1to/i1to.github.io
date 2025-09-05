@@ -34,6 +34,8 @@ permalink: /docs/
 
 ### 测试页面
 - [布局测试](/layout-test/)
+- [头部测试](/header-test/)
+- [描述测试](/description-test/)
 
 ## 快速导航
 
