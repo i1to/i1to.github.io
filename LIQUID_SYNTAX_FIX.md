@@ -14,7 +14,7 @@ Error: Process completed with exit code 1.
 在 `index.html` 第28行使用了复杂的Liquid表达式，包含多个字符串比较和转义字符，导致语法解析错误。
 
 ### 错误代码
-```liquid
+```text
 {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 ```
 
@@ -28,7 +28,7 @@ Error: Process completed with exit code 1.
 ### 1. 简化Liquid表达式
 **文件**: `index.html`
 
-```liquid
+```text
 <!-- 修复前（复杂表达式） -->
 {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 
@@ -91,7 +91,7 @@ Error: Process completed with exit code 1.
 4. **测试验证**: 在本地测试后再提交
 
 ### 修复前后对比
-```liquid
+```text
 <!-- 修复前 -->
 where_exp: "post", "complex expression with escapes"
 

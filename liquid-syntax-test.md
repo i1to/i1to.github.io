@@ -19,11 +19,11 @@ Liquid syntax error (line 24): Expected end_of_string but found id
 
 在 `index.html` 第28行的Liquid表达式中使用了单引号，但Liquid语法要求使用双引号：
 
-```liquid
-<!-- 错误的语法 -->
+```text
+错误的语法：
 {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 
-<!-- 正确的语法 -->
+正确的语法：
 {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 ```
 
@@ -62,11 +62,11 @@ jekyll build --safe --verbose
 - 字符串比较：`contains`
 
 ### 修复前后对比
-```liquid
-<!-- 修复前（错误） -->
+```text
+修复前（错误）：
 post.categories contains '网络技术'
 
-<!-- 修复后（正确） -->
+修复后（正确）：
 post.categories contains '网络技术'
 ```
 
