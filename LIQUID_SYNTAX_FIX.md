@@ -15,7 +15,7 @@ Error: Process completed with exit code 1.
 
 ### 错误代码
 ```liquid
-{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains \"网络技术\" or post.categories contains \"技术文档\" or post.categories contains \"Technical Documentation\"" | sort: "date" | reverse %}
+{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 ```
 
 ### 问题点
@@ -30,7 +30,7 @@ Error: Process completed with exit code 1.
 
 ```liquid
 <!-- 修复前（复杂表达式） -->
-{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains \"网络技术\" or post.categories contains \"技术文档\" or post.categories contains \"Technical Documentation\"" | sort: "date" | reverse %}
+{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 
 <!-- 修复后（简化表达式） -->
 {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %}

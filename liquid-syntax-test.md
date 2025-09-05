@@ -24,7 +24,7 @@ Liquid syntax error (line 24): Expected end_of_string but found id
 {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 
 <!-- 正确的语法 -->
-{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains \"网络技术\" or post.categories contains \"技术文档\" or post.categories contains \"Technical Documentation\"" | sort: "date" | reverse %}
+{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
 ```
 
 ## 修复内容
@@ -67,7 +67,7 @@ jekyll build --safe --verbose
 post.categories contains '网络技术'
 
 <!-- 修复后（正确） -->
-post.categories contains \"网络技术\"
+post.categories contains '网络技术'
 ```
 
 ---
