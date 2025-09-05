@@ -22,6 +22,7 @@
 - **学习笔记与心得**：记录技术学习过程中的发现和思考
 - **项目展示与分析**：分享个人项目的开发过程和技术选型
 - **GitBook文档库**：提供NETCONF、YANG等网络协议的RFC文档中英对照版
+- **📖 [博客架构说明](blog-architecture.md)**：详细介绍Jekyll博客的技术架构、新文章编写流程和GitHub部署机制
 
 ## 🔍 如何访问
 
@@ -35,6 +36,8 @@
 - **测试**: [html-proofer](https://github.com/gjtorikian/html-proofer) - 验证生成的 HTML 文件
 - **编写**: 所有文章使用 [Markdown](https://daringfireball.net/projects/markdown/) 格式编写
 - **文档库**: 集成 [GitBook](https://www.gitbook.com/) 风格的文档系统，提供网络协议RFC文档
+
+> 💡 **想了解更多技术细节？** 查看 [📖 博客架构说明](blog-architecture.md) 了解完整的技术架构、新文章编写流程和GitHub部署机制。
 
 ## 📂 目录结构
 
