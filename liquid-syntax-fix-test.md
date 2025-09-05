@@ -19,10 +19,10 @@ GitHub Actions构建失败，可能是由于复杂的Liquid表达式导致的语
 
 ```text
 修复前（复杂表达式）：
-{% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %}
+<!-- {% assign writings_posts = site.posts | where_exp: "post", "post.categories contains '网络技术' or post.categories contains '技术文档' or post.categories contains 'Technical Documentation'" | sort: "date" | reverse %} -->
 
 修复后（简化表达式）：
-{% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %}
+<!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} -->
 ```
 
 ### 2. 修复说明
