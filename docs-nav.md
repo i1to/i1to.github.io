@@ -49,9 +49,7 @@ permalink: /docs-nav/
       <h2>测试页面</h2>
       <p>布局测试、功能演示等测试相关页面</p>
       <ul>
-        <li><a href="{{ site.baseurl }}/layout-test/">布局测试</a></li>
-        <li><a href="{{ site.baseurl }}/header-test/">头部测试</a></li>
-        <li><a href="{{ site.baseurl }}/description-test/">描述测试</a></li>
+        <li><a href="{{ site.baseurl }}/test-pages/">博客测试页面</a></li>
       </ul>
     </div>
   </div>
@@ -85,7 +83,7 @@ permalink: /docs-nav/
 <a href="{{ site.baseurl }}/docs/rfc/" class="btn btn-outline">RFC 文档</a>
 <a href="{{ site.baseurl }}/docs/sonic/" class="btn btn-outline">SONiC 架构</a>
 <a href="{{ site.baseurl }}/docs/yumapro/" class="btn btn-outline">YumaPro 工具</a>
-<a href="{{ site.baseurl }}/layout-test/" class="btn btn-outline">布局测试</a>
+<a href="{{ site.baseurl }}/test-pages/" class="btn btn-outline">博客测试页面</a>
     </div>
   </div>
 </div>

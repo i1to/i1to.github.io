@@ -110,6 +110,12 @@ paginate_path: "/page/:num/"
 # Show excerpts on the home page
 show_excerpts: true
 
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
 # Default front matter
 defaults:
   -
@@ -119,3 +125,9 @@ defaults:
     values:
       layout: "post"
       author: "i1to"
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs"

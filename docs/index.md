@@ -22,6 +22,9 @@ permalink: /docs/
   - [RFC 7950 - YANG 1.1 数据建模语言](/docs/rfc/rfc7950/)
 - [YumaPro 工具套件](/docs/yumapro/)
 
+### SONiC 相关博客
+- [SONiC 相关博客资源](/docs/sonic-blogs/) - 精选的SONiC技术博客和学习资源
+
 ### 开发工具
 - [Jekyll 博客搭建](/docs/jekyll/)
 - [GitHub Actions 配置](/docs/github-actions/)
@@ -33,9 +36,7 @@ permalink: /docs/
 - [监控与日志](/docs/monitoring/)
 
 ### 测试页面
-- [布局测试](/layout-test/)
-- [头部测试](/header-test/)
-- [描述测试](/description-test/)
+- [博客测试页面](/test-pages/) - 整合的布局、头部和描述测试
 
 ## 快速导航
 
