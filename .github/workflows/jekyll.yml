@@ -6,6 +6,17 @@ on:
   pull_request:
     branches: [ master ]
 
+# 设置权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 允许并发部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,9 +38,21 @@ jobs:
       run: |
         bundle exec jekyll build --safe --verbose
     
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
+        path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

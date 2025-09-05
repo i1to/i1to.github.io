@@ -33,9 +33,11 @@
 - **框架**: [Jekyll](https://jekyllrb.com/) - 简单、可扩展的静态网站生成器
 - **部署**: [GitHub Pages](https://pages.github.com) - 直接从 GitHub 仓库托管静态网站
 - **自动化**: [GitHub Actions](https://github.com/features/actions) - 自动构建和部署
-- **测试**: [html-proofer](https://github.com/gjtorikian/html-proofer) - 验证生成的 HTML 文件
+- **测试**: [html-proofer](https://github.com/gjtorikian/html-proofer) - 验证生成的 HTML 文件（本地测试）
 - **编写**: 所有文章使用 [Markdown](https://daringfireball.net/projects/markdown/) 格式编写
 - **文档库**: 集成 [GitBook](https://www.gitbook.com/) 风格的文档系统，提供网络协议RFC文档
+- **样式**: [Sass](https://sass-lang.com/) - CSS 预处理器
+- **语法高亮**: [Rouge](https://github.com/rouge-ruby/rouge) - 代码语法高亮
 
 > 💡 **想了解更多技术细节？** 查看 [📖 博客架构说明](blog-architecture.md) 了解完整的技术架构、新文章编写流程和GitHub部署机制。
 
