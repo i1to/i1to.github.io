@@ -16,7 +16,11 @@ permalink: /docs/
 - [网络协议 RFC 文档](/docs/rfc/)
   - [RFC 6241 - NETCONF 配置协议](/docs/rfc/rfc6241/)
   - [RFC 4742 - NETCONF over SSH](/docs/rfc/rfc4742/)
+  - [RFC 5277 - NETCONF 事件通知](/docs/rfc/rfc5277/)
   - [RFC 6020 - YANG 数据建模语言](/docs/rfc/rfc6020/)
+  - [RFC 7223 - YANG 接口类型定义](/docs/rfc/rfc7223/)
+  - [RFC 7950 - YANG 1.1 数据建模语言](/docs/rfc/rfc7950/)
+- [YumaPro 工具套件](/docs/yumapro/)
 
 ### 开发工具
 - [Jekyll 博客搭建](/docs/jekyll/)

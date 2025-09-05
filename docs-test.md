@@ -21,6 +21,9 @@ permalink: /docs-test/
             <a href="{{ site.baseurl }}/docs/rfc/" class="btn btn-primary">查看 RFC 文档</a>
             <a href="{{ site.baseurl }}/docs/rfc/rfc6241/" class="btn btn-outline">RFC 6241</a>
             <a href="{{ site.baseurl }}/docs/rfc/rfc4742/" class="btn btn-outline">RFC 4742</a>
+            <a href="{{ site.baseurl }}/docs/rfc/rfc5277/" class="btn btn-outline">RFC 5277</a>
+            <a href="{{ site.baseurl }}/docs/rfc/rfc7223/" class="btn btn-outline">RFC 7223</a>
+            <a href="{{ site.baseurl }}/docs/rfc/rfc7950/" class="btn btn-outline">RFC 7950</a>
           </div>
         </div>
         
@@ -30,6 +33,14 @@ permalink: /docs-test/
           <div class="test-links">
             <a href="{{ site.baseurl }}/docs/sonic/" class="btn btn-primary">查看 SONiC 文档</a>
             <a href="{{ site.baseurl }}/docs/sonic/redis-wrappers/" class="btn btn-outline">Redis Wrappers</a>
+          </div>
+        </div>
+        
+        <div class="test-card">
+          <h3>YumaPro 工具套件</h3>
+          <p>基于 NETCONF 和 YANG 的网络管理工具</p>
+          <div class="test-links">
+            <a href="{{ site.baseurl }}/docs/yumapro/" class="btn btn-primary">查看 YumaPro 文档</a>
           </div>
         </div>
       </div>

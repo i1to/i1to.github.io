@@ -34,14 +34,17 @@
             <a href="{{ site.baseurl }}/archives/">归档</a>
             <a href="{{ site.baseurl }}/categories/">分类</a>
             <a href="{{ site.baseurl }}/tags/">标签</a>
-            <a href="{{ site.baseurl }}/gitbook-docs/">GitBook</a>
+            <a href="{{ site.baseurl }}/docs/">文档首页</a>
+            <a href="{{ site.baseurl }}/layout-test/">布局测试</a>
           </nav>
         </header>
       </div>
     </div>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
+    <div id="main" role="main">
+      <div class="content-wrapper">
+        {{ content }}
+      </div>
     </div>
 
     {% include custom-footer.html %}

@@ -71,9 +71,10 @@ permalink: /docs-nav/
     <h2>开始使用</h2>
     <div class="action-buttons">
       <a href="{{ site.baseurl }}/docs/" class="btn btn-primary">浏览所有文档</a>
-      <a href="{{ site.baseurl }}/docs/rfc/" class="btn btn-outline">RFC 文档</a>
-      <a href="{{ site.baseurl }}/docs/sonic/" class="btn btn-outline">SONiC 架构</a>
-      <a href="{{ site.baseurl }}/docs-test/" class="btn btn-outline">测试页面</a>
+<a href="{{ site.baseurl }}/docs/rfc/" class="btn btn-outline">RFC 文档</a>
+<a href="{{ site.baseurl }}/docs/sonic/" class="btn btn-outline">SONiC 架构</a>
+<a href="{{ site.baseurl }}/docs/yumapro/" class="btn btn-outline">YumaPro 工具</a>
+<a href="{{ site.baseurl }}/docs-test/" class="btn btn-outline">测试页面</a>
     </div>
   </div>
 </div>

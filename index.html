@@ -47,7 +47,7 @@ layout: default
 ### 网络协议文档
 
 <ul class="post-list">
-  {% assign readings_posts = site.posts | where: "tags", "GitBook" | sort: "date" | reverse %}
+  {% assign readings_posts = site.posts | where: "tags", "文档" | sort: "date" | reverse %}
   {% for post in readings_posts limit:5 %}
     <li>
       <h2>
@@ -64,4 +64,4 @@ layout: default
   {% endfor %}
 </ul>
 
-[查看更多 <span class="nowrap"><img src='/images/icons/reading-takeaways.svg' alt='' class="icon"/>网络协议文档</span> →](/reading-takeaways)
+[查看更多 <span class="nowrap"><img src='/images/icons/reading-takeaways.svg' alt='' class="icon"/>网络协议文档</span> →](/docs/rfc/)
