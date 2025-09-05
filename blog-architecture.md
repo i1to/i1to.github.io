@@ -150,7 +150,40 @@ git push origin master
 
 ## GitHub 部署机制
 
-### 1. GitHub Pages 自动构建
+### 1. GitHub Actions 自动触发原理
+
+#### 触发机制
+GitHub Actions 通过以下方式实现自动触发：
+
+1. **事件监听**: GitHub 监听仓库的特定事件（如 push、pull request）
+2. **工作流文件检测**: 当检测到 `.github/workflows/` 目录下的 YAML 文件时，自动注册工作流
+3. **条件匹配**: 检查触发条件是否满足（如分支名称、文件路径等）
+4. **自动执行**: 满足条件时自动启动工作流
+
+#### 配置文件位置
+工作流配置文件位于：
+```
+.github/workflows/jekyll.yml
+```
+
+#### 触发条件配置
+```yaml
+on:
+  push:
+    branches: [ master ]        # 推送到 master 分支时触发
+  pull_request:
+    branches: [ master ]        # 向 master 分支提交 PR 时触发
+```
+
+#### 工作原理详解
+1. **代码推送**: 开发者执行 `git push origin master`
+2. **事件触发**: GitHub 检测到 push 事件到 master 分支
+3. **工作流启动**: GitHub Actions 读取 `.github/workflows/jekyll.yml` 配置
+4. **环境创建**: 在 GitHub 的服务器上创建 Ubuntu 虚拟机环境
+5. **步骤执行**: 按照工作流中定义的步骤顺序执行
+6. **结果反馈**: 将执行结果反馈到 GitHub 界面
+
+### 2. GitHub Pages 自动构建
 - 当代码推送到 `master` 分支时，GitHub Pages 自动触发构建
 - 使用 GitHub Pages 预配置的 Jekyll 环境
 - 构建过程包括：
@@ -158,7 +191,7 @@ git push origin master
   - 生成静态网站 (`jekyll build`)
   - 部署到 `gh-pages` 分支
 
-### 2. GitHub Actions 工作流
+### 3. GitHub Actions 工作流
 我们配置了自定义的 GitHub Actions 工作流 (`.github/workflows/jekyll.yml`)：
 
 ```yaml
@@ -222,14 +255,85 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-### 3. 部署流程
+### 4. 如何设置 GitHub Actions
+
+#### 4.1 创建工作流文件
+1. 在仓库根目录创建 `.github/workflows/` 目录
+2. 在该目录下创建 `jekyll.yml` 文件
+3. 文件必须使用 YAML 格式，以 `.yml` 或 `.yaml` 结尾
+
+#### 4.2 配置触发条件
+```yaml
+on:
+  push:                    # 推送事件
+    branches: [ master ]   # 推送到 master 分支时触发
+  pull_request:            # 拉取请求事件
+    branches: [ master ]   # 向 master 分支提交 PR 时触发
+  workflow_dispatch:       # 手动触发（可选）
+```
+
+#### 4.3 设置权限
+```yaml
+permissions:
+  contents: read      # 读取仓库内容
+  pages: write        # 写入 GitHub Pages
+  id-token: write     # 用于身份验证
+```
+
+#### 4.4 配置环境
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本
+    steps:
+      - uses: actions/checkout@v4  # 检出代码
+      - uses: ruby/setup-ruby@v1   # 设置 Ruby 环境
+```
+
+#### 4.5 启用 GitHub Pages
+1. 进入仓库的 **Settings** 页面
+2. 找到 **Pages** 部分
+3. 将 **Source** 设置为 **"GitHub Actions"**
+4. 保存设置
+
+### 5. 部署流程
 1. **代码推送**: 开发者推送代码到 `master` 分支
 2. **触发构建**: GitHub Actions 检测到推送事件
-3. **环境准备**: 设置 Ruby 3.1 环境
+3. **环境准备**: 设置 Ruby 3.0 环境
 4. **依赖安装**: 安装 Jekyll 和相关插件
 5. **网站构建**: 执行 `jekyll build` 生成静态文件
 6. **自动部署**: 将生成的 `_site` 目录内容推送到 `gh-pages` 分支
 7. **网站更新**: GitHub Pages 从 `gh-pages` 分支更新网站内容
+
+### 6. 监控和调试
+
+#### 6.1 查看工作流状态
+1. 进入 GitHub 仓库页面
+2. 点击 **Actions** 标签页
+3. 查看工作流运行历史和状态
+4. 点击具体的工作流查看详细日志
+
+#### 6.2 常见触发事件
+- **push**: 代码推送到指定分支
+- **pull_request**: 创建或更新拉取请求
+- **schedule**: 定时触发（使用 cron 表达式）
+- **workflow_dispatch**: 手动触发
+- **repository_dispatch**: 通过 API 触发
+
+#### 6.3 调试技巧
+1. **查看日志**: 在 Actions 页面查看详细的执行日志
+2. **本地测试**: 使用 `act` 工具在本地测试工作流
+3. **分步调试**: 在关键步骤添加 `echo` 命令输出调试信息
+4. **权限检查**: 确保工作流有足够的权限执行所需操作
+
+#### 6.4 工作流文件结构
+```
+.github/
+└── workflows/
+    ├── jekyll.yml          # 主要构建和部署工作流
+    ├── ci.yml             # 持续集成工作流（可选）
+    └── security.yml       # 安全扫描工作流（可选）
+```
 
 ## 博客实现原理
 
