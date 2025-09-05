@@ -9,7 +9,7 @@
 ### 核心框架
 - **Jekyll 3.10.0**: 静态网站生成器
 - **GitHub Pages**: 静态网站托管服务
-- **Ruby 3.1**: 运行环境
+- **Ruby 3.0**: 运行环境
 - **Markdown**: 内容编写语言
 
 ### 主要插件
@@ -175,16 +175,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.1'
+        ruby-version: '3.0'
+        bundler-cache: true
     
     - name: Install dependencies
       run: |
         gem install bundler
-        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     
     - name: Build site
