@@ -13,6 +13,8 @@ tags:
   - SDN
 ---
 
+本文介绍了如何使用GitBook来组织和展示网络协议文档，特别是NETCONF和YANG相关的RFC文档。通过GitBook的现代化界面和导航功能，让复杂的技术文档变得更加易于阅读和学习，为网络工程师和开发者提供了一个便捷的参考资料平台。
+
 As network engineers and developers, a deep understanding of network protocol specifications is crucial. I've compiled a series of RFC documents on network protocols such as NETCONF and YANG, and made them available on GitBook for better reading and learning. This article provides a navigation guide to these documents.
 
 ## What is GitBook?

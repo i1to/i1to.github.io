@@ -9,6 +9,8 @@ tags:
   - Blogging
 ---
 
+这是我博客的第一篇文章，记录了我开始写博客的初衷和思考过程。通过分享技术问题的解决过程和个人经验，希望能够帮助其他遇到类似问题的开发者，同时也为自己建立一个知识记录和回顾的平台。
+
 ## Why I Started This Blog
 
 I've decided to start a blog. I've been considering writing one for a long time, but I never knew what to write about.
