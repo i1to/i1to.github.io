@@ -197,20 +197,20 @@ defaults:
 #### _layouts/default.html
 ```html
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
+<html lang="<!-- {{ page.lang | default: site.lang | default: 'zh-CN' }} -->">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <title><!-- {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} --></title>
+  <meta name="description" content="<!-- {% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %} -->">
   
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="canonical" href="<!-- {{ page.url | absolute_url }} -->">
+  <link rel="alternate" type="application/rss+xml" title="<!-- {{ site.title | escape }} -->" href="<!-- {{ '/feed.xml' | absolute_url }} -->">
   
   <style>
-    {% include main.scss %}
+    /* 自定义样式将在这里 */
   </style>
 </head>
 
@@ -220,16 +220,16 @@ defaults:
       <header class="masthead clearfix">
         <div class="site-info">
           <h1 class="site-name">
-            <a href="{{ site.baseurl }}/">{{ site.title }}</a>
+            <a href="<!-- {{ site.baseurl }}/ -->"><!-- {{ site.title }} --></a>
           </h1>
-          <p class="site-description">{{ site.description }}</p>
+          <p class="site-description"><!-- {{ site.description }} --></p>
         </div>
         <nav>
-          <a href="{{ site.baseurl }}/">首页</a>
-          <a href="{{ site.baseurl }}/about/">关于</a>
-          <a href="{{ site.baseurl }}/archive/">归档</a>
-          <a href="{{ site.baseurl }}/categories/">分类</a>
-          <a href="{{ site.baseurl }}/tags/">标签</a>
+          <a href="<!-- {{ site.baseurl }}/ -->">首页</a>
+          <a href="<!-- {{ site.baseurl }}/about/ -->">关于</a>
+          <a href="<!-- {{ site.baseurl }}/archive/ -->">归档</a>
+          <a href="<!-- {{ site.baseurl }}/categories/ -->">分类</a>
+          <a href="<!-- {{ site.baseurl }}/tags/ -->">标签</a>
         </nav>
       </header>
     </div>
@@ -237,14 +237,14 @@ defaults:
 
   <div id="main" role="main">
     <div class="container">
-      {{ content }}
+      <!-- {{ content }} -->
     </div>
   </div>
 
   <div class="wrapper-footer">
     <div class="container">
       <footer class="footer">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        <p>&copy; <!-- {{ site.time | date: '%Y' }} --> <!-- {{ site.title }} -->. All rights reserved.</p>
       </footer>
     </div>
   </div>
@@ -260,40 +260,40 @@ layout: default
 
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1 class="post-title"><!-- {{ page.title }} --></h1>
     <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%Y年%m月%d日" }}
+      <time datetime="<!-- {{ page.date | date_to_xmlschema }} -->">
+        <!-- {{ page.date | date: "%Y年%m月%d日" }} -->
       </time>
-      {% if page.categories.size > 0 %}
+      <!-- {% if page.categories.size > 0 %} -->
         <span class="post-categories">
-          分类: {{ page.categories | join: ', ' }}
+          分类: <!-- {{ page.categories | join: ', ' }} -->
         </span>
-      {% endif %}
-      {% if page.tags.size > 0 %}
+      <!-- {% endif %} -->
+      <!-- {% if page.tags.size > 0 %} -->
         <span class="post-tags">
-          标签: {{ page.tags | join: ', ' }}
+          标签: <!-- {{ page.tags | join: ', ' }} -->
         </span>
-      {% endif %}
+      <!-- {% endif %} -->
     </div>
   </header>
 
   <div class="post-content">
-    {{ content }}
+    <!-- {{ content }} -->
   </div>
 
   <footer class="post-footer">
     <div class="post-nav">
-      {% if page.previous %}
-        <a href="{{ page.previous.url }}" class="post-nav-prev">
-          ← {{ page.previous.title }}
+      <!-- {% if page.previous %} -->
+        <a href="<!-- {{ page.previous.url }} -->" class="post-nav-prev">
+          ← <!-- {{ page.previous.title }} -->
         </a>
-      {% endif %}
-      {% if page.next %}
-        <a href="{{ page.next.url }}" class="post-nav-next">
-          {{ page.next.title }} →
+      <!-- {% endif %} -->
+      <!-- {% if page.next %} -->
+        <a href="<!-- {{ page.next.url }} -->" class="post-nav-next">
+          <!-- {{ page.next.title }} --> →
         </a>
-      {% endif %}
+      <!-- {% endif %} -->
     </div>
   </footer>
 </article>
@@ -581,17 +581,17 @@ permalink: /categories/
 
 # 文章分类
 
-{% for category in site.categories %}
-  <h2>{{ category[0] }}</h2>
+<!-- {% for category in site.categories %} -->
+  <h2><!-- {{ category[0] }} --></h2>
   <ul>
-    {% for post in category[1] %}
+    <!-- {% for post in category[1] %} -->
       <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a href="<!-- {{ post.url }} -->"><!-- {{ post.title }} --></a>
+        <span class="post-date"><!-- {{ post.date | date: "%Y-%m-%d" }} --></span>
       </li>
-    {% endfor %}
+    <!-- {% endfor %} -->
   </ul>
-{% endfor %}
+<!-- {% endfor %} -->
 ```
 
 ## GitHub Pages部署
@@ -642,7 +642,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: $<!-- {{ secrets.GITHUB_TOKEN }} -->
         publish_dir: ./_site
 ```
 
@@ -668,7 +668,7 @@ jobs:
 // 简单的客户端搜索
 document.getElementById('search-input').addEventListener('input', function(e) {
   const query = e.target.value.toLowerCase();
-  const posts = {{ site.posts | jsonify }};
+  const posts = <!-- {{ site.posts | jsonify }} -->;
   
   const results = posts.filter(post => 
     post.title.toLowerCase().includes(query) ||
@@ -719,15 +719,15 @@ function displayResults(results) {
 #### 使用Google Analytics
 ```html
 <!-- 在_layouts/default.html的<head>中添加 -->
-{% if site.google_analytics %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<!-- {% if site.google_analytics %} -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<!-- {{ site.google_analytics }} -->"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    gtag('config', '<!-- {{ site.google_analytics }} -->');
   </script>
-{% endif %}
+<!-- {% endif %} -->
 ```
 
 ## 性能优化
