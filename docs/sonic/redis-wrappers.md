@@ -3,6 +3,7 @@ layout: docs
 title: Redis Wrappers
 parent: SONiC 架构详解
 permalink: /docs/sonic/redis-wrappers/
+nav_order: 4.2.1
 ---
 
 # Redis Wrappers

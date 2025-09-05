@@ -1,12 +1,12 @@
 ---
 layout: page
-title: 技术文档
+title: 文档
 permalink: /docs-nav/
 ---
 
 <div class="docs-nav-page">
   <div class="docs-hero">
-    <h1>技术文档中心</h1>
+    <h1>文档中心</h1>
     <p>深入的技术文档，涵盖网络技术、开发工具和系统运维等各个领域</p>
   </div>
 
@@ -43,6 +43,15 @@ permalink: /docs-nav/
         <li><a href="{{ site.baseurl }}/docs/monitoring/">监控与日志</a></li>
       </ul>
     </div>
+
+    <div class="category-card">
+      <div class="category-icon">🧪</div>
+      <h2>测试页面</h2>
+      <p>布局测试、功能演示等测试相关页面</p>
+      <ul>
+        <li><a href="{{ site.baseurl }}/layout-test/">布局测试</a></li>
+      </ul>
+    </div>
   </div>
 
   <div class="docs-features">
@@ -74,7 +83,7 @@ permalink: /docs-nav/
 <a href="{{ site.baseurl }}/docs/rfc/" class="btn btn-outline">RFC 文档</a>
 <a href="{{ site.baseurl }}/docs/sonic/" class="btn btn-outline">SONiC 架构</a>
 <a href="{{ site.baseurl }}/docs/yumapro/" class="btn btn-outline">YumaPro 工具</a>
-<a href="{{ site.baseurl }}/docs-test/" class="btn btn-outline">测试页面</a>
+<a href="{{ site.baseurl }}/layout-test/" class="btn btn-outline">测试页面</a>
     </div>
   </div>
 </div>

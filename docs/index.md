@@ -1,10 +1,10 @@
 ---
 layout: docs
-title: 技术文档
+title: 文档
 permalink: /docs/
 ---
 
-# 技术文档中心
+# 文档中心
 
 欢迎来到技术文档中心，这里收集了各种技术相关的详细文档。
 
@@ -31,6 +31,9 @@ permalink: /docs/
 - [Linux 系统管理](/docs/linux/)
 - [网络配置与优化](/docs/network/)
 - [监控与日志](/docs/monitoring/)
+
+### 测试页面
+- [布局测试](/layout-test/)
 
 ## 快速导航
 
