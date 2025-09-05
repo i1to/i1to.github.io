@@ -57,16 +57,16 @@ Liquid syntax error (line 16): Expected end_of_string but found id in liquid-syn
 ### HTML注释的作用
 ```html
 <!-- 这是HTML注释，Jekyll不会解析其中的Liquid代码 -->
-<!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} -->
+<!-- <!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} --> -->
 ```
 
 ### 修复前后对比
 ```text
 修复前（会被Jekyll解析）：
-{% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %}
+<!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} -->
 
 修复后（不会被Jekyll解析）：
-<!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} -->
+<!-- <!-- {% assign writings_posts = site.posts | where: "categories", "网络技术" | sort: "date" | reverse %} --> -->
 ```
 
 ## 验证方法
